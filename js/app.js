@@ -1,9 +1,12 @@
 /*-------------------------------- Constants --------------------------------*/
-let isWinner, isLoser
+
 
 
 /*-------------------------------- Variables --------------------------------*/
 
+let isWinner, isLoser
+
+/*------------------------ Cached Element References ------------------------*/
 const answerInput = document.querySelector("#answer-input")
 const messageEl = document.querySelector("#message")
 const resetBtn = document.querySelector("#startOver-button")
@@ -14,8 +17,6 @@ const playerHel = document.querySelector("#playerHealth")
 const enemyImg = document.querySelector("#enemy")
 const pathOneImg = document.querySelector("#pathOneImg")
 const pathTwoImg = document.querySelector("#pathOneImg")
-/*------------------------ Cached Element References ------------------------*/
-
 
 
 /*----------------------------- Event Listeners -----------------------------*/
@@ -26,6 +27,7 @@ const pathTwoImg = document.querySelector("#pathOneImg")
 
 init()
 
+
 function init() {
     messageEl.innerText = 'Choose a path..'
     resetBtn.setAttribute('hidden', true)
@@ -34,10 +36,12 @@ function init() {
     // enemyImg.setAttribute('hidden', true)
     //keeping this line in case inBattle does not "unhide" the elements when tested
     pathOneImg.setAttribute('hidden', false)
-    pathTwoImg.setAttribute('hidden' , false)
+    pathTwoImg.setAttribute('hidden', false)
     isWinner = false
     isLoser = false
     inBattle() = false
+    playerHel = 100/100
+    enemyHel = 100/100
     render()
 }
 
@@ -53,3 +57,16 @@ function randomQuestion() {
     messageEl.innerText = 'This will be a random question function'
 }
 
+
+//Render Functions
+function renderAns(lastAns) {
+    if (lastAns !== correctAns) {
+        messageEl.className = 'damage'//to style the text later
+        messageEl.innerText = `${lastAns} is wrong! You have taken damage!`
+        playerHel = playerHel - 20/100
+    } else {
+        messageEl.className = 'attack'//to style the text later
+        messageEl.innerText = `${lastAns} is correct! You cast fireball!!`
+        enemyHel = enemyHel - 20/100
+    }
+}
