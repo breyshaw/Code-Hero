@@ -59,8 +59,8 @@ function init() {
     isLoser = false
     isPlaying = true
     inBattle() = false
-    playerHel = (100 / 100)
-    enemyHel = (100 / 100)
+    playerHel = (100 / 100)//I know this will probably change when I get into the nitty gritty
+    enemyHel = (100 / 100)//I know this will probably change when I get into the nitty gritty
     render()
 }
 
@@ -82,11 +82,11 @@ function renderAns(lastAns) {
     if (lastAns !== correctAns) {
         messageEl.className = 'damage'//to style the text later
         messageEl.innerText = `${lastAns} is wrong! You have taken damage!`
-        playerHel = playerHel - 20 / 100
+        playerHel = playerHel - 20 / 100//I know this will probably change when I get into the nitty gritty
     } else {
         messageEl.className = 'attack'//to style the text later
         messageEl.innerText = `${lastAns} is correct! You cast fireball!!`
-        enemyHel = enemyHel - 20 / 100
+        enemyHel = enemyHel - 20 / 100//I know this will probably change when I get into the nitty gritty
     }
 }
 
