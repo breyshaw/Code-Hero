@@ -12,14 +12,13 @@
 
 <body>
     <h1>Code Hero</h1>
-    <h2 id="enemyHealth" hidden>Enemy 100/100</h2>
-    <div id="enemy" hidden>ENEMY</div>
-    <h2 id='message'>Choose a path...</h2>
-    <footer id="playerHealth" hidden>PLAYER 100/100</footer>
+    <h2 id="enemyHealth">Enemy 100/100</h2>
+    <div id="enemy">ENEMY</div>
+    <h2 id='message'></h2>
     <form>
         <input type="text" placeholder="Enter answer here..." id="answer-input" hidden>
         <button id="answer-button" type='submit' hidden>SUBMIT ANSWER</button>
-        <button id="startOver-button" type='reset' hidden>Reset</button>
+        <button id="startOver-button" type='reset'>Reset</button>
         <button id="path-one">
             <svg xmlns="http://www.w3.org/2000/svg" width="80" height="16" fill="currentColor"
                 class="bi bi-arrow-up-square-fill" viewBox="0 0 16 16">
@@ -35,7 +34,9 @@
             </svg>
         </button>
     </form>
-    <footer id="playerHealth" hidden>PLAYER 100/100</footer>
+    <div id="pathOneImg"></div>
+    <div id="pathTwoImg"></div>
+    <footer id="playerHealth">PLAYER 100/100</footer>
 </body>
 
 </html>
