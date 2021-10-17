@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    <script defer src="./js/app.js"></script>
     <link rel="stylesheet" href="./css/style.css">
     <script defer src="./js/app.js"></script>
     <meta charset="UTF-8">
@@ -12,21 +13,24 @@
 
 <body>
     <h1>Code Hero</h1>
-    <h2 id="enemyHealth" hidden>Enemy 100/100</h2>
-    <div id="enemy" hidden>ENEMY</div>
-    <h2 id='message'></h2>
+    <div id="pathOneImg">pathOneImg</div>
+    <div id="pathTwoImg">pathTwoImg</div>
+    <h2 id="enemyHealth">Enemy 100/100</h2>
+    <div id="enemy">ENEMY</div>
+    <h2 id="message">Choose a path...</h2>
     <form id='form'>
-        <input type="text" placeholder="Enter answer here..." id="answer-input" hidden>
+        <h2 id="message"></h2>
+        <input type="text" placeholder="Enter answer here..." id="answer-input"hidden>
         <button id="answer-button" type='submit' hidden>SUBMIT ANSWER</button>
-        <button id="startOver-button" type='reset'hidden>Reset</button>
-        <button id="path-one">
+        <button id="startOver-button" type='reset'>Reset</button>
+        <button id="path-one" type="button">
             <svg xmlns="http://www.w3.org/2000/svg" width="80" height="16" fill="currentColor"
                 class="bi bi-arrow-up-square-fill" viewBox="0 0 16 16">
                 <path
                     d="M2 16a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2zm6.5-4.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 1 0z" />
             </svg>
         </button>
-        <button id="path-two">
+        <button id="path-two" type="button">
             <svg xmlns="http://www.w3.org/2000/svg" width="80" height="16" fill="currentColor"
                 class="bi bi-arrow-up-square-fill" viewBox="0 0 16 16">
                 <path
@@ -34,9 +38,6 @@
             </svg>
         </button>
     </form>
-    <div id="pathOneImg"></div>
-    <div id="pathTwoImg"></div>
     <footer id="playerHealth" hidden>PLAYER 100/100</footer>
 </body>
-
 </html>
