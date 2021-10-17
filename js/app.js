@@ -1,5 +1,5 @@
 /*-------------------------------- Constants --------------------------------*/
-let isWinner, startBattle, lose
+let isWinner, isLoser
 
 
 /*-------------------------------- Variables --------------------------------*/
@@ -29,11 +29,27 @@ init()
 function init() {
     messageEl.innerText = 'Choose a path..'
     resetBtn.setAttribute('hidden', true)
-    enemyHel.setAttribute('hidden', true)
-    playerHel.setAttribute('hidden', true)
-    enemyImg.setAttribute('hidden', true)
+    // enemyHel.setAttribute('hidden', true)
+    // playerHel.setAttribute('hidden', true)
+    // enemyImg.setAttribute('hidden', true)
+    //keeping this line in case inBattle does not "unhide" the elements when tested
     pathOneImg.setAttribute('hidden', false)
     pathTwoImg.setAttribute('hidden' , false)
     isWinner = false
     isLoser = false
+    inBattle() = false
+    render()
 }
+
+function inBattle() {
+    messageEl = randomQuestion()
+    enemyHel.setAttribute('hidden', false)
+    playerHel.setAttribute('hidden', false)
+    enemyImg.setAttribute('hidden', false)
+    render()
+}
+
+function randomQuestion() {
+    messageEl.innerText = 'This will be a random question function'
+}
+
