@@ -71,12 +71,13 @@ function inBattle() {
     enemyImg.setAttribute('hidden', false)
 }
 
+//I will concentrate more on this function later
 function randomQuestion() {
     messageEl.innerText = 'This will be a random question function'
 }
 
 
-//Render Functions
+//Render Functions (I think I am struggling here)
 function renderAns(lastAns) {
     if (lastAns !== correctAns) {
         messageEl.className = 'damage'//to style the text later
@@ -112,9 +113,9 @@ function render() {
     if (isPlaying = true) {
         renderPath()
     } else if (isWinner = true) {
-        renderWin()//render winning screen?
+        renderWin()//render winning screen? or type out the function here if I have to.
     }
     if (isLoser = true) {
-        renderDied()//render losing screen?
+        renderDied()//render losing screen? or type out the function here if I have to.
     }
 }
