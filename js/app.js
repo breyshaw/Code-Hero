@@ -21,12 +21,18 @@ const pathTwoImg = document.querySelector("#pathOneImg")
 
 /*----------------------------- Event Listeners -----------------------------*/
 
+form.addEventListener('reset', init)
+resetBtn.addEventListener('click', init)
+path1Btn.addEventListener('click') //callback needs to be added)
+path2Btn.addEventListener('click')//callback function needed
+
 
 
 /*-------------------------------- Functions --------------------------------*/
 
-init()
+messageEl.innerText = ''
 
+init()
 
 function init() {
     messageEl.innerText = 'Choose a path..'
@@ -69,4 +75,12 @@ function renderAns(lastAns) {
         messageEl.innerText = `${lastAns} is correct! You cast fireball!!`
         enemyHel = enemyHel - 20/100
     }
+}
+
+function renderPath1() {
+
+}
+
+function renderPath2() {
+
 }
