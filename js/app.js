@@ -13,12 +13,13 @@
 const messageEl = document.querySelector("#message")
 const resetBtn = document.querySelector("#startOver-btn")
 const path1Btn = document.querySelector("#path-one")
-// const path2Btn = document.getElementById("#path-two")
+const path2Btn = document.querySelector("#path-two")
 const enemyHel = document.querySelector("#enemyHealth")
 const playerHel = document.querySelector("#playerHealth")
 const enemyImg = document.querySelector("#enemy")
 const pathOneImg = document.querySelector("#path1Img")
 const pathTwoImg = document.querySelector("#path2Img")
+const randomQuestion = document.querySelector('#random-question')
 
 
 // /*----------------------------- Event Listeners -----------------------------*/
@@ -28,14 +29,26 @@ resetBtn.addEventListener('click', init)
 
 path1Btn.addEventListener('click', event => {
     messageEl.innerText = 'An enemy has appeared!'
-    pathOneImg.setAttribute('hidden', "")
-    pathTwoImg.setAttribute('hidden', "")
-    // enemyHel.setAttribute('hidden = false') 
-    // THIS DOES NOT UNHIDE THEM
-    // playerHel.setAttribute('hidden', false)
-    // enemyImg.setAttribute('hidden', false)
-    // pathOneImg.setAttribute('hidden', true)
-    // pathTwoImg.setAttribute('hidden', true)
+    pathOneImg.setAttribute('hidden', true)
+    path1Btn.setAttribute('hidden', true)
+    path2Btn.setAttribute('hidden', true)
+    pathTwoImg.setAttribute('hidden', true)
+    enemyHel.removeAttribute('hidden') 
+    playerHel.removeAttribute('hidden')
+    enemyImg.removeAttribute('hidden')
+    randomQuestion.removeAttribute('hidden')
+})
+
+path2Btn.addEventListener('click', event => {
+    messageEl.innerText = 'An enemy has appeared!'
+    pathOneImg.setAttribute('hidden', true)
+    path1Btn.setAttribute('hidden', true)
+    path2Btn.setAttribute('hidden', true)
+    pathTwoImg.setAttribute('hidden', true)
+    enemyImg.removeAttribute('hidden')
+    enemyHel.removeAttribute('hidden') 
+    playerHel.removeAttribute('hidden')
+    randomQuestion.removeAttribute('hidden')
 })
 
 //Apparently this below wont work either, (calling the inBattle function created below on click)
@@ -53,35 +66,38 @@ init()
 function init() {
     messageEl.innerText = 'Choose a path..'
     // resetBtn.setAttribute('hidden', "") keeping this visible while testing
-    enemyHel.setAttribute('hidden', "")
-    playerHel.setAttribute('hidden', "")
-    enemyImg.setAttribute('hidden', "")
-    // pathOneImg.setAttribute('hidden', false)
-    // pathTwoImg.setAttribute('hidden', false)
+    enemyHel.setAttribute('hidden', true)
+    playerHel.setAttribute('hidden', true)
+    enemyImg.setAttribute('hidden', true)
+    pathOneImg.removeAttribute('hidden')
+    pathTwoImg.removeAttribute('hidden')
+    path1Btn.removeAttribute('hidden')
+    path2Btn.removeAttribute('hidden')
+    randomQuestion.setAttribute('hidden', true)
     // isWinner = false
     // isLoser = false
     // isPlaying = true
     // inBattle = false
-    // playerHel = (100 / 100)//I know this will probably change when I get into the nitty gritty
-    // enemyHel = (100 / 100)//I know this will probably change when I get into the nitty gritty
+    // playerHel = 100//I know this will probably change when I get into the nitty gritty
+    // enemyHel = 100//I know this will probably change when I get into the nitty gritty
     // render()
 }
 
 // function inBattle() {
-    // let (inBattle = true)
-    // console.log('inBattle function works!')
-    // messageEl = randomQuestion()
-    // enemyHel.setAttribute('hidden', false)
-    // playerHel.setAttribute('hidden', false)
-    // enemyImg.setAttribute('hidden', false)
-    // pathOneImg.setAttribute('hidden', true)
-    // pathTwoImg.setAttribute('hidden', true)
+//     inBattle = true
+//     console.log('inBattle function works!')
+//     // messageEl = randomQuestion()
+//     enemyHel.setAttribute('hidden', false)
+//     playerHel.setAttribute('hidden', false)
+//     enemyImg.setAttribute('hidden', false)
+//     pathOneImg.setAttribute('hidden', true)
+//     pathTwoImg.setAttribute('hidden', true)
 // }
 
 //I will concentrate more on this function later
-// function randomQuestion() {
-    // messageEl.innerText = 'This will be a random question function'
-// }
+function genrandomQuestion() {
+    randomQuestion.innerText = 'This will be a random question function'
+}
 
 
 //Render Functions (I think I am struggling here)
@@ -90,11 +106,11 @@ function init() {
 //     if (lastAns !== correctAns) {
 //         messageEl.className = 'damage'//to style the text later
 //         messageEl.innerText = `${lastAns} is wrong! You have taken damage!`
-//         playerHel = playerHel - 20 / 100//I know this will probably change when I get into the nitty gritty
+//         playerHel = playerHel - 20//I know this will probably change when I get into the nitty gritty
 //     } else {
 //         messageEl.className = 'attack'//to style the text later
 //         messageEl.innerText = `${lastAns} is correct! You cast fireball!!`
-//         enemyHel = enemyHel - 20 / 100//I know this will probably change when I get into the nitty gritty
+//         enemyHel = enemyHel - 20 //I know this will probably change when I get into the nitty gritty
 //     }
 // }
 
