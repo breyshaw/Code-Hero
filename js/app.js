@@ -30,7 +30,7 @@ const answer = document.querySelector('#answer-input')
 resetBtn.addEventListener('click', init)
 
 path1Btn.addEventListener('click', event => {
-    messageEl.innerText = 'You choose Hyrule. As you are walking towards the alluring castle, a bokoblin appeared!'
+    messageEl.innerText = 'You choose Hyrule. As you are walking towards the alluring Temple of Time, a bokoblin appeared!'
     pathOneImg.setAttribute('hidden', true)
     path1Btn.setAttribute('hidden', true)
     path2Btn.setAttribute('hidden', true)
