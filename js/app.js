@@ -16,7 +16,7 @@ const path1Btn = document.querySelector("#path-one")
 const path2Btn = document.querySelector("#path-two")
 const enemyHel = document.querySelector("#enemyHealth")
 const playerHel = document.querySelector("#playerHealth")
-const enemyImg = document.querySelector("#enemy")
+const bokoblin = document.querySelector("#bokoblin")
 const pathOneImg = document.querySelector("#path1Img")
 const pathTwoImg = document.querySelector("#path2Img")
 const randomQuestion = document.querySelector('#random-question')
@@ -30,17 +30,18 @@ const answer = document.querySelector('#answer-input')
 resetBtn.addEventListener('click', init)
 
 path1Btn.addEventListener('click', event => {
-    messageEl.innerText = 'You chose Path one and an enemy has appeared!'
+    messageEl.innerText = 'You choose Hyrule. As you are walking towards the alluring castle, a bokoblin appeared!'
     pathOneImg.setAttribute('hidden', true)
     path1Btn.setAttribute('hidden', true)
     path2Btn.setAttribute('hidden', true)
     pathTwoImg.setAttribute('hidden', true)
     enemyHel.removeAttribute('hidden') 
     playerHel.removeAttribute('hidden')
-    enemyImg.removeAttribute('hidden')
+    bokoblin.removeAttribute('hidden')
     randomQuestion.removeAttribute('hidden')
     submitBtn.removeAttribute('hidden')
     answer.removeAttribute('hidden')
+    // bokoblin.setAttribute('src=./Images/bokoblin.jpeg', true)
 })
 
 path2Btn.addEventListener('click', event => {
@@ -49,7 +50,7 @@ path2Btn.addEventListener('click', event => {
     path1Btn.setAttribute('hidden', true)
     path2Btn.setAttribute('hidden', true)
     pathTwoImg.setAttribute('hidden', true)
-    enemyImg.removeAttribute('hidden')
+    bokoblin.removeAttribute('hidden')
     enemyHel.removeAttribute('hidden') 
     playerHel.removeAttribute('hidden')
     randomQuestion.removeAttribute('hidden')
@@ -74,7 +75,7 @@ function init() {
     // resetBtn.setAttribute('hidden', "") keeping this visible while testing
     enemyHel.setAttribute('hidden', true)
     playerHel.setAttribute('hidden', true)
-    enemyImg.setAttribute('hidden', true)
+    bokoblin.setAttribute('hidden', true)
     pathOneImg.removeAttribute('hidden')
     pathTwoImg.removeAttribute('hidden')
     path1Btn.removeAttribute('hidden')
