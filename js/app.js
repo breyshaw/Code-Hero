@@ -92,6 +92,7 @@ function init() {
     enemyHel.setAttribute('hidden', true)
     playerHel.setAttribute('hidden', true)
     bokoblin.setAttribute('hidden', true)
+    bokoblin.setAttribute('src', './Images/bokoblin.jpeg')
     pathOneImg.removeAttribute('hidden')
     pathTwoImg.removeAttribute('hidden')
     path1Btn.removeAttribute('hidden')
