@@ -22,6 +22,7 @@ const pathTwoImg = document.querySelector("#path2Img")
 const randomQuestion = document.querySelector('#random-question')
 const submitBtn = document.querySelector('#answer-button')
 const answerInput = document.querySelector('#answer-input')
+const bobContinuebtn = document.querySelector('#continue-Hyrule')
 
 
 // /*----------------------------- Event Listeners -----------------------------*/
@@ -41,6 +42,7 @@ path1Btn.addEventListener('click', event => {
     randomQuestion.innerText = genRandomQuestion()
     submitBtn.removeAttribute('hidden')
     answerInput.removeAttribute('hidden')
+    bobContinuebtn.removeAttribute('hidden')//This is here for now for testing purposes
 
     form.addEventListener('submit', function(evt) {
         evt.preventDefault()
@@ -50,7 +52,6 @@ path1Btn.addEventListener('click', event => {
     })
 
 })
-
 
 path2Btn.addEventListener('click', event => {
     messageEl.innerText = 'You chose path two and an enemy has appeared!'
@@ -65,6 +66,10 @@ path2Btn.addEventListener('click', event => {
     submitBtn.removeAttribute('hidden')
     answer.removeAttribute('hidden')
 })
+
+bobContinuebtn.addEventListener('click', event => {
+    bokoblin.setAttribute('src', './Images/lynel.jpeg')
+} )
 
 //Apparently this below wont work either, (calling the inBattle function created below on click)
 // path1Btn.addEventListener('click', inBattle())
@@ -91,6 +96,7 @@ function init() {
     randomQuestion.setAttribute('hidden', true)
     submitBtn.setAttribute('hidden', true)
     answerInput.setAttribute('hidden', true)
+    bobContinuebtn.setAttribute('hidden', true)
     // isWinner = false
     // isLoser = false
     // isPlaying = true
@@ -132,9 +138,11 @@ function renderAns(lastAns) {
         messageEl.className = 'attack'//to style the text later
         messageEl.innerText = `${lastAns} is correct! You cast fireball!!`
         // enemyHel = enemyHel - 20 //I know this will probably change when I get into the nitty gritty
-    }
+    } 
 }
+function renderContinue() {
 
+}
 // function renderPath() {
 //     messageEl.innerText = 'Choose a path..'
 //     resetBtn.setAttribute('hidden', true)
