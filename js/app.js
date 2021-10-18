@@ -5,7 +5,9 @@
 /*-------------------------------- Variables --------------------------------*/
 
 // let isWinner, isPlaying, isLoser,
+
 isWinner = false
+
 
 // /*------------------------ Cached Element References ------------------------*/
 
@@ -69,6 +71,7 @@ path2Btn.addEventListener('click', event => {
 
 bobContinuebtn.addEventListener('click', event => {
     bokoblin.setAttribute('src', './Images/lynel.jpeg')
+    messageEl.innerText = 'As night falls you get closer to the temple.. a lynel has appeared!!'
 } )
 
 //Apparently this below wont work either, (calling the inBattle function created below on click)
@@ -134,12 +137,29 @@ function renderAns(lastAns) {
         messageEl.className = 'damage'//to style the text later
         messageEl.innerText = `${lastAns} is wrong! You have taken damage!`
         // playerHel = playerHel - 20//I know this will probably change when I get into the nitty gritty
-    } else {
+    } else if (lastAns === correctAns) {
         messageEl.className = 'attack'//to style the text later
         messageEl.innerText = `${lastAns} is correct! You cast fireball!!`
         // enemyHel = enemyHel - 20 //I know this will probably change when I get into the nitty gritty
     } 
 }
+
+// function renderAns(lastAns) {
+//     if (lastAns === correctAns) {
+//         messageEl.className = 'attack'//to style the text later
+//         messageEl.innerText = `${lastAns} is correct! You cast fireball!!`
+//         // playerHel = playerHel - 20//I know this will probably change when I get into the nitty gritty
+//     } else if (lastAns !== correctAns) {
+//         messageEl.className = 'damage'//to style the text later
+//         messageEl.innerText = `${lastAns} is wrong! You have taken damage!`
+//         // enemyHel = enemyHel - 20 //I know this will probably change when I get into the nitty gritty
+//     } else if () {
+//         renderContinue()
+//     }
+// }
+
+
+
 function renderContinue() {
 
 }
