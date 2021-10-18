@@ -115,6 +115,7 @@ function init() {
     submitBtn.setAttribute('hidden', true)
     answerInput.setAttribute('hidden', true)
     bobContinuebtn.setAttribute('hidden', true)
+    lynelContinuebtn.setAttribute('hidden', true)
     // isWinner = false
     // isLoser = false
     // isPlaying = true
@@ -137,7 +138,7 @@ function init() {
 
 //I will concentrate more on this function later
 function genRandomQuestion() {
-    return randomQuestion.innerText = 'This will be a random question function (correctAns = a)'
+    return randomQuestion.innerText = 'This will be a random question (correctAns = a)'
 }
 
 
@@ -154,7 +155,7 @@ function renderAns(lastAns) {
         // playerHel = playerHel - 20//I know this will probably change when I get into the nitty gritty
     } else if (lastAns === correctAns) {
         messageEl.className = 'attack'//to style the text later
-        messageEl.innerText = `${lastAns} is correct! You cast fireball!!`
+        messageEl.innerText = `${lastAns} is correct! You inflict damage with the Master Sword!`
         // enemyHel = enemyHel - 20 //I know this will probably change when I get into the nitty gritty
     } 
 }
