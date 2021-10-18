@@ -30,7 +30,7 @@ const answer = document.querySelector('#answer-input')
 resetBtn.addEventListener('click', init)
 
 path1Btn.addEventListener('click', event => {
-    messageEl.innerText = 'An enemy has appeared!'
+    messageEl.innerText = 'You chose Path one and an enemy has appeared!'
     pathOneImg.setAttribute('hidden', true)
     path1Btn.setAttribute('hidden', true)
     path2Btn.setAttribute('hidden', true)
@@ -44,7 +44,7 @@ path1Btn.addEventListener('click', event => {
 })
 
 path2Btn.addEventListener('click', event => {
-    messageEl.innerText = 'An enemy has appeared!'
+    messageEl.innerText = 'You chose path two and an enemy has appeared!'
     pathOneImg.setAttribute('hidden', true)
     path1Btn.setAttribute('hidden', true)
     path2Btn.setAttribute('hidden', true)
