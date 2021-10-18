@@ -20,6 +20,8 @@ const enemyImg = document.querySelector("#enemy")
 const pathOneImg = document.querySelector("#path1Img")
 const pathTwoImg = document.querySelector("#path2Img")
 const randomQuestion = document.querySelector('#random-question')
+const submitBtn = document.querySelector('#answer-button')
+const answer = document.querySelector('#answer-input')
 
 
 // /*----------------------------- Event Listeners -----------------------------*/
@@ -37,6 +39,8 @@ path1Btn.addEventListener('click', event => {
     playerHel.removeAttribute('hidden')
     enemyImg.removeAttribute('hidden')
     randomQuestion.removeAttribute('hidden')
+    submitBtn.removeAttribute('hidden')
+    answer.removeAttribute('hidden')
 })
 
 path2Btn.addEventListener('click', event => {
@@ -49,6 +53,8 @@ path2Btn.addEventListener('click', event => {
     enemyHel.removeAttribute('hidden') 
     playerHel.removeAttribute('hidden')
     randomQuestion.removeAttribute('hidden')
+    submitBtn.removeAttribute('hidden')
+    answer.removeAttribute('hidden')
 })
 
 //Apparently this below wont work either, (calling the inBattle function created below on click)
@@ -74,12 +80,14 @@ function init() {
     path1Btn.removeAttribute('hidden')
     path2Btn.removeAttribute('hidden')
     randomQuestion.setAttribute('hidden', true)
+    submitBtn.setAttribute('hidden', true)
+    answer.setAttribute('hidden', true)
     // isWinner = false
     // isLoser = false
     // isPlaying = true
     // inBattle = false
-    // playerHel = 100//I know this will probably change when I get into the nitty gritty
-    // enemyHel = 100//I know this will probably change when I get into the nitty gritty
+    // playerHel = 100
+    // enemyHel = 100
     // render()
 }
 
