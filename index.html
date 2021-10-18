@@ -2,9 +2,8 @@
 <html lang="en">
 
 <head>
-    <script defer src="./js/app.js"></script>
+    <!-- <script defer src="./js/app.js"></script> -->
     <link rel="stylesheet" href="./css/style.css">
-    <script defer src="./js/app.js"></script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,10 +12,10 @@
 
 <body>
     <h1>Code Hero</h1>
-    <div id="pathOneImg">pathOneImg</div>
-    <div id="pathTwoImg">pathTwoImg</div>
-    <h2 id="enemyHealth">Enemy 100/100</h2>
-    <div id="enemy">ENEMY</div>
+    <div id="path1Img">pathOneImg</div>
+    <div id="path2Img">pathTwoImg</div>
+    <h2 id="enemyHealth" hidden="true">Enemy 100/100</h2>
+    <div id="enemy" hidden="true">ENEMY</div>
     <h2 id="message">message</h2>
     <form id='form'>
         <h2 id="message"></h2>
@@ -30,6 +29,7 @@
             Path Two
         </button>
     </form>
-    <footer id="playerHealth" hidden>PLAYER 100/100</footer>
+    <footer id="playerHealth" hidden="true">PLAYER 100/100</footer>
 </body>
+<script src="./js/app.js"></script>
 </html>

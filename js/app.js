@@ -12,13 +12,13 @@
 // const answerInput = document.getElementById("#answer-input")
 const messageEl = document.querySelector("#message")
 const resetBtn = document.querySelector("#startOver-btn")
-const path1Btn = document.getElementById("#path-one")
+const path1Btn = document.querySelector("#path-one")
 // const path2Btn = document.getElementById("#path-two")
-// const enemyHel = document.querySelector("#enemyHealth")
-// const playerHel = document.querySelector("#playerHealth")
-// const enemyImg = document.querySelector("#enemy")
-// const pathOneImg = document.getElementById("#pathOneImg")
-// const pathTwoImg = document.getElementById("#pathOneImg")
+const enemyHel = document.querySelector("#enemyHealth")
+const playerHel = document.querySelector("#playerHealth")
+const enemyImg = document.querySelector("#enemy")
+const pathOneImg = document.querySelector("#path1Img")
+const pathTwoImg = document.querySelector("#path2Img")
 
 
 // /*----------------------------- Event Listeners -----------------------------*/
@@ -27,9 +27,15 @@ const path1Btn = document.getElementById("#path-one")
 resetBtn.addEventListener('click', init)
 
 path1Btn.addEventListener('click', event => {
-    // messageEl = randomQuestion()
+    messageEl.innerText = 'An enemy has appeared!'
     pathOneImg.setAttribute('hidden', "")
     pathTwoImg.setAttribute('hidden', "")
+    // enemyHel.setAttribute('hidden = false') 
+    // THIS DOES NOT UNHIDE THEM
+    // playerHel.setAttribute('hidden', false)
+    // enemyImg.setAttribute('hidden', false)
+    // pathOneImg.setAttribute('hidden', true)
+    // pathTwoImg.setAttribute('hidden', true)
 })
 
 //Apparently this below wont work either, (calling the inBattle function created below on click)
@@ -46,7 +52,7 @@ init()
 
 function init() {
     messageEl.innerText = 'Choose a path..'
-    resetBtn.setAttribute('hidden', "")
+    // resetBtn.setAttribute('hidden', "") keeping this visible while testing
     enemyHel.setAttribute('hidden', "")
     playerHel.setAttribute('hidden', "")
     enemyImg.setAttribute('hidden', "")
