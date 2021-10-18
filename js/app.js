@@ -5,11 +5,11 @@
 /*-------------------------------- Variables --------------------------------*/
 
 // let isWinner, isPlaying, isLoser,
+isWinner = false
 
 // /*------------------------ Cached Element References ------------------------*/
 
-// const form = document.getElementById('#form')
-// const answerInput = document.getElementById("#answer-input")
+const form = document.querySelector('#form')
 const messageEl = document.querySelector("#message")
 const resetBtn = document.querySelector("#startOver-btn")
 const path1Btn = document.querySelector("#path-one")
@@ -21,12 +21,11 @@ const pathOneImg = document.querySelector("#path1Img")
 const pathTwoImg = document.querySelector("#path2Img")
 const randomQuestion = document.querySelector('#random-question')
 const submitBtn = document.querySelector('#answer-button')
-const answer = document.querySelector('#answer-input')
+const answerInput = document.querySelector('#answer-input')
 
 
 // /*----------------------------- Event Listeners -----------------------------*/
 
-// form.addEventListener('reset', init)
 resetBtn.addEventListener('click', init)
 
 path1Btn.addEventListener('click', event => {
@@ -39,10 +38,19 @@ path1Btn.addEventListener('click', event => {
     playerHel.removeAttribute('hidden')
     bokoblin.removeAttribute('hidden')
     randomQuestion.removeAttribute('hidden')
+    randomQuestion.innerText = genRandomQuestion()
     submitBtn.removeAttribute('hidden')
-    answer.removeAttribute('hidden')
-    // bokoblin.setAttribute('src=./Images/bokoblin.jpeg', true)
+    answerInput.removeAttribute('hidden')
+
+    form.addEventListener('submit', function(evt) {
+        evt.preventDefault()
+        if (isWinner === false) {
+        renderAns(answerInput.value)
+        }
+    })
+
 })
+
 
 path2Btn.addEventListener('click', event => {
     messageEl.innerText = 'You chose path two and an enemy has appeared!'
@@ -82,7 +90,7 @@ function init() {
     path2Btn.removeAttribute('hidden')
     randomQuestion.setAttribute('hidden', true)
     submitBtn.setAttribute('hidden', true)
-    answer.setAttribute('hidden', true)
+    answerInput.setAttribute('hidden', true)
     // isWinner = false
     // isLoser = false
     // isPlaying = true
@@ -104,24 +112,28 @@ function init() {
 // }
 
 //I will concentrate more on this function later
-function genrandomQuestion() {
-    randomQuestion.innerText = 'This will be a random question function'
+function genRandomQuestion() {
+    return randomQuestion.innerText = 'This will be a random question function (correctAns = a)'
 }
 
 
+correctAns = "a"
 //Render Functions (I think I am struggling here)
 //will work on correctAns when I get there
-// function renderAns(lastAns) {
-//     if (lastAns !== correctAns) {
-//         messageEl.className = 'damage'//to style the text later
-//         messageEl.innerText = `${lastAns} is wrong! You have taken damage!`
-//         playerHel = playerHel - 20//I know this will probably change when I get into the nitty gritty
-//     } else {
-//         messageEl.className = 'attack'//to style the text later
-//         messageEl.innerText = `${lastAns} is correct! You cast fireball!!`
-//         enemyHel = enemyHel - 20 //I know this will probably change when I get into the nitty gritty
-//     }
-// }
+// playerHel= 100
+// enemyHel= 100
+// lastAns = answerInput
+function renderAns(lastAns) {
+    if (lastAns !== correctAns) {
+        messageEl.className = 'damage'//to style the text later
+        messageEl.innerText = `${lastAns} is wrong! You have taken damage!`
+        // playerHel = playerHel - 20//I know this will probably change when I get into the nitty gritty
+    } else {
+        messageEl.className = 'attack'//to style the text later
+        messageEl.innerText = `${lastAns} is correct! You cast fireball!!`
+        // enemyHel = enemyHel - 20 //I know this will probably change when I get into the nitty gritty
+    }
+}
 
 // function renderPath() {
 //     messageEl.innerText = 'Choose a path..'
