@@ -24,7 +24,8 @@ const pathTwoImg = document.querySelector("#path2Img")
 const randomQuestion = document.querySelector('#random-question')
 const submitBtn = document.querySelector('#answer-button')
 const answerInput = document.querySelector('#answer-input')
-const bobContinuebtn = document.querySelector('#continue-Hyrule')
+const bobContinuebtn = document.querySelector('#continue-bob')
+const lynelContinuebtn = document.querySelector("#continue-lynel")
 
 
 // /*----------------------------- Event Listeners -----------------------------*/
@@ -72,8 +73,21 @@ path2Btn.addEventListener('click', event => {
 bobContinuebtn.addEventListener('click', event => {
     bokoblin.setAttribute('src', './Images/lynel.jpeg')
     messageEl.innerText = 'As night falls you get closer to the temple.. a lynel has appeared!!'
+    bobContinuebtn.setAttribute('hidden', true)
+    lynelContinuebtn.removeAttribute('hidden')
 } )
-
+lynelContinuebtn.addEventListener('click', event => {
+    bokoblin.setAttribute('src', './Images/triforce.gif')
+    messageEl.innerText = 'Congratulations, you have reached the triforce!!'
+    bobContinuebtn.setAttribute('hidden', true)
+    lynelContinuebtn.removeAttribute('hidden')
+    enemyHel.setAttribute('hidden', true)
+    playerHel.setAttribute('hidden', true)
+    randomQuestion.setAttribute('hidden', true)
+    submitBtn.setAttribute('hidden', true)
+    answerInput.setAttribute('hidden', true)
+    lynelContinuebtn.setAttribute('hidden', true)
+} )
 //Apparently this below wont work either, (calling the inBattle function created below on click)
 // path1Btn.addEventListener('click', inBattle())
 
@@ -161,9 +175,9 @@ function renderAns(lastAns) {
 
 
 
-function renderContinue() {
+// function renderContinue() {
 
-}
+// }
 // function renderPath() {
 //     messageEl.innerText = 'Choose a path..'
 //     resetBtn.setAttribute('hidden', true)
