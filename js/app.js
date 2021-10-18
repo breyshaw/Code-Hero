@@ -4,54 +4,37 @@
 
 /*-------------------------------- Variables --------------------------------*/
 
-// let isWinner, isPlaying, isLoser
+// let isWinner, isPlaying, isLoser,
 
 // /*------------------------ Cached Element References ------------------------*/
 
-form = document.querySelector('#form')
-answerInput = document.querySelector("#answer-input")
-messageEl = document.getElementById("#message")
-resetBtn = document.querySelector("#startOver-button")
-path1Btn = document.querySelector("#path-one")
-path2Btn = document.querySelector("#path-two")
-enemyHel = document.querySelector("#enemyHealth")
-playerHel = document.querySelector("#playerHealth")
-enemyImg = document.querySelector("#enemy")
-pathOneImg = document.querySelector("#pathOneImg")
-pathTwoImg = document.getElementById("#pathOneImg")
+// const form = document.getElementById('#form')
+// const answerInput = document.getElementById("#answer-input")
+const messageEl = document.querySelector("#message")
+const resetBtn = document.querySelector("#startOver-btn")
+const path1Btn = document.getElementById("#path-one")
+// const path2Btn = document.getElementById("#path-two")
+// const enemyHel = document.querySelector("#enemyHealth")
+// const playerHel = document.querySelector("#playerHealth")
+// const enemyImg = document.querySelector("#enemy")
+// const pathOneImg = document.getElementById("#pathOneImg")
+// const pathTwoImg = document.getElementById("#pathOneImg")
 
 
 // /*----------------------------- Event Listeners -----------------------------*/
 
 // form.addEventListener('reset', init)
 resetBtn.addEventListener('click', init)
-//Need to ask if I can use this inBattle like this
-//Or if I need to take the route going with path2Btn
-path1Btn.addEventListener('click', inBattle())
-// path2Btn.addEventListener('click', inBattle())
-// document.getElementById('path-one')
-// .addEventListener('click', inBattle()) 
-// {
-//     evt.preventDefault
-//     if (isWinner === false) {
-//     console.log('inBattle function works!')
-//     messageEl = randomQuestion()
-//     enemyHel.setAttribute('hidden', false)
-//     playerHel.setAttribute('hidden', false)
-//     enemyImg.setAttribute('hidden', false)
-//     pathOneImg.setAttribute('hidden', true)
-//     pathTwoImg.setAttribute('hidden', true)
-//     }
-// })
-// path2Btn.addEventListener('click', function (evt) {
-//     evt.preventDefault()
-//     if (isWinner === false) {
-//     messageEl = randomQuestion()
-//     enemyHel.removeAttribute('hidden')
-//     playerHel.removeAttribute('hidden')
-//     enemyImg.removeAttribute('hidden')
-//     }
-// })
+
+path1Btn.addEventListener('click', event => {
+    // messageEl = randomQuestion()
+    pathOneImg.setAttribute('hidden', "")
+    pathTwoImg.setAttribute('hidden', "")
+})
+
+//Apparently this below wont work either, (calling the inBattle function created below on click)
+// path1Btn.addEventListener('click', inBattle())
+
 
 
 
@@ -62,37 +45,36 @@ path1Btn.addEventListener('click', inBattle())
 init()
 
 function init() {
-    // messageEl.innerText = 'Choose a path..'
-    resetBtn.setAttribute('hidden', true)
-    enemyHel.setAttribute('hidden', true)
-    playerHel.setAttribute('hidden', true)
-    enemyImg.setAttribute('hidden', true)
-    //keeping these lines in case inBattle does not "unhide" the elements when tested
+    messageEl.innerText = 'Choose a path..'
+    resetBtn.setAttribute('hidden', "")
+    enemyHel.setAttribute('hidden', "")
+    playerHel.setAttribute('hidden', "")
+    enemyImg.setAttribute('hidden', "")
     // pathOneImg.setAttribute('hidden', false)
     // pathTwoImg.setAttribute('hidden', false)
     // isWinner = false
     // isLoser = false
     // isPlaying = true
-    inBattle = false
+    // inBattle = false
     // playerHel = (100 / 100)//I know this will probably change when I get into the nitty gritty
     // enemyHel = (100 / 100)//I know this will probably change when I get into the nitty gritty
     // render()
 }
 
-function inBattle() {
+// function inBattle() {
     // let (inBattle = true)
-    console.log('inBattle function works!')
+    // console.log('inBattle function works!')
     // messageEl = randomQuestion()
-    enemyHel.setAttribute('hidden', false)
-    playerHel.setAttribute('hidden', false)
-    enemyImg.setAttribute('hidden', false)
+    // enemyHel.setAttribute('hidden', false)
+    // playerHel.setAttribute('hidden', false)
+    // enemyImg.setAttribute('hidden', false)
     // pathOneImg.setAttribute('hidden', true)
     // pathTwoImg.setAttribute('hidden', true)
-}
+// }
 
 //I will concentrate more on this function later
 // function randomQuestion() {
-//     // messageEl.innerText = 'This will be a random question function'
+    // messageEl.innerText = 'This will be a random question function'
 // }
 
 
