@@ -7,7 +7,7 @@
 // let isWinner, isPlaying, isLoser,
 
 isWinner = false
-
+isLoser = false
 
 // /*------------------------ Cached Element References ------------------------*/
 
@@ -38,7 +38,7 @@ path1Btn.addEventListener('click', event => {
     path1Btn.setAttribute('hidden', true)
     path2Btn.setAttribute('hidden', true)
     pathTwoImg.setAttribute('hidden', true)
-    enemyHel.removeAttribute('hidden') 
+    enemyHel.removeAttribute('hidden')
     playerHel.removeAttribute('hidden')
     bokoblin.removeAttribute('hidden')
     randomQuestion.removeAttribute('hidden')
@@ -47,10 +47,10 @@ path1Btn.addEventListener('click', event => {
     answerInput.removeAttribute('hidden')
     bobContinuebtn.removeAttribute('hidden')//This is here for now for testing purposes
 
-    form.addEventListener('submit', function(evt) {
+    form.addEventListener('submit', function (evt) {
         evt.preventDefault()
         if (isWinner === false) {
-        renderAns(answerInput.value)
+            renderAns(answerInput.value)
         }
     })
 
@@ -63,7 +63,7 @@ path2Btn.addEventListener('click', event => {
     path2Btn.setAttribute('hidden', true)
     pathTwoImg.setAttribute('hidden', true)
     bokoblin.removeAttribute('hidden')
-    enemyHel.removeAttribute('hidden') 
+    enemyHel.removeAttribute('hidden')
     playerHel.removeAttribute('hidden')
     randomQuestion.removeAttribute('hidden')
     submitBtn.removeAttribute('hidden')
@@ -75,7 +75,7 @@ bobContinuebtn.addEventListener('click', event => {
     messageEl.innerText = 'As night falls you get closer to the temple.. a lynel has appeared!!'
     bobContinuebtn.setAttribute('hidden', true)
     lynelContinuebtn.removeAttribute('hidden')
-} )
+})
 lynelContinuebtn.addEventListener('click', event => {
     bokoblin.setAttribute('src', './Images/triforce.gif')
     messageEl.innerText = 'Congratulations, you have reached the triforce!!'
@@ -87,7 +87,7 @@ lynelContinuebtn.addEventListener('click', event => {
     submitBtn.setAttribute('hidden', true)
     answerInput.setAttribute('hidden', true)
     lynelContinuebtn.setAttribute('hidden', true)
-} )
+})
 //Apparently this below wont work either, (calling the inBattle function created below on click)
 // path1Btn.addEventListener('click', inBattle())
 
@@ -120,8 +120,6 @@ function init() {
     // isLoser = false
     // isPlaying = true
     // inBattle = false
-    // playerHel = 100
-    // enemyHel = 100
     // render()
 }
 
@@ -145,35 +143,19 @@ function genRandomQuestion() {
 correctAns = "a"
 //Render Functions (I think I am struggling here)
 //will work on correctAns when I get there
-// playerHel= 100
-// enemyHel= 100
 
 // lastAns = answerInput
 function renderAns(lastAns) {
     if (lastAns !== correctAns) {
         messageEl.className = 'damage'//to style the text later
         messageEl.innerText = `${lastAns} is wrong! You have taken damage!`
-        playerHel.innerHTML = playerHel.innerHTML - 20//I know this will probably change when I get into the nitty gritty
+        playerHel.innerHTML = playerHel.innerHTML - 20
     } else if (lastAns === correctAns) {
         messageEl.className = 'attack'//to style the text later
         messageEl.innerText = `${lastAns} is correct! You inflict damage with the Master Sword!`
-        // enemyHel = enemyHel - 20 //I know this will probably change when I get into the nitty gritty
-    } 
+        enemyHel.innerHTML = enemyHel.innerHTML - 20
+    }
 }
-
-// function renderAns(lastAns) {
-//     if (lastAns === correctAns) {
-//         messageEl.className = 'attack'//to style the text later
-//         messageEl.innerText = `${lastAns} is correct! You cast fireball!!`
-//         // playerHel = playerHel - 20//I know this will probably change when I get into the nitty gritty
-//     } else if (lastAns !== correctAns) {
-//         messageEl.className = 'damage'//to style the text later
-//         messageEl.innerText = `${lastAns} is wrong! You have taken damage!`
-//         // enemyHel = enemyHel - 20 //I know this will probably change when I get into the nitty gritty
-//     } else if () {
-//         renderContinue()
-//     }
-// }
 
 
 
