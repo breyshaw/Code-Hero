@@ -155,6 +155,7 @@ function renderAns(lastAns) {
         messageEl.innerText = `${lastAns} is correct! You inflict damage with the Master Sword!`
         enemyHel.innerHTML = enemyHel.innerHTML - 20
     }
+    render()
 }
 
 
@@ -181,13 +182,8 @@ function renderAns(lastAns) {
 
 // }
 
-// function render() {
-//     if (isPlaying = true) {
-//         renderPath()
-//     } else if (isWinner = true) {
-//         renderWin()//render winning screen? or type out the function here if I have to.
-//     }
-//     if (isLoser = true) {
-//         renderDied()//render losing screen? or type out the function here if I have to.
-//     }
-// }
+function render() {
+    if (playerHel.innerHTML <= 0) {
+        messageEl.innerText = 'YOU DEAD'
+    }
+}
