@@ -178,12 +178,12 @@ function renderAns(lastAns) {
 
 // }
 
-// function renderDied() {
-
-// }
+function renderDied() {
+    messageEl.innerText = 'YOU DEAD'
+}
 
 function render() {
     if (playerHel.innerHTML <= 0) {
-        messageEl.innerText = 'YOU DEAD'
+        renderDied()
     }
 }
