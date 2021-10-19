@@ -45,7 +45,6 @@ path1Btn.addEventListener('click', event => {
     randomQuestion.innerText = genRandomQuestion()
     submitBtn.removeAttribute('hidden')
     answerInput.removeAttribute('hidden')
-    bobContinuebtn.removeAttribute('hidden')//This is here for now for testing purposes
 
     form.addEventListener('submit', function (evt) {
         evt.preventDefault()
@@ -116,7 +115,7 @@ function init() {
     answerInput.setAttribute('hidden', true)
     bobContinuebtn.setAttribute('hidden', true)
     lynelContinuebtn.setAttribute('hidden', true)
-    // playerHel.innerText = 100
+    playerHel.innerHTML = 100
     // isWinner = false
     // isLoser = false
     // isPlaying = true
@@ -175,9 +174,10 @@ function renderAns(lastAns) {
     // inBattle() = false
 // }
 
-// function renderWin() {
-
-// }
+function renderWinBob() {
+    bobContinuebtn.removeAttribute('hidden')
+    messageEl.innerText = 'YOU WON'
+}
 
 function renderDied() {
     enemyImg.setAttribute('src', './Images/youdied.webp')
@@ -195,5 +195,7 @@ function renderDied() {
 function render() {
     if (playerHel.innerHTML <= 0) {
         renderDied()
+    } else if (enemyHel.innerHTML <= 0) {
+        renderWinBob()
     }
 }
