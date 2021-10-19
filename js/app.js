@@ -18,7 +18,7 @@ const path1Btn = document.querySelector("#path-one")
 const path2Btn = document.querySelector("#path-two")
 const enemyHel = document.querySelector("#enemyHealth")
 const playerHel = document.querySelector("#playerHealth")
-const bokoblin = document.querySelector("#bokoblin")
+const enemyImg = document.querySelector("#bokoblin")
 const pathOneImg = document.querySelector("#path1Img")
 const pathTwoImg = document.querySelector("#path2Img")
 const randomQuestion = document.querySelector('#random-question')
@@ -40,7 +40,7 @@ path1Btn.addEventListener('click', event => {
     pathTwoImg.setAttribute('hidden', true)
     enemyHel.removeAttribute('hidden')
     playerHel.removeAttribute('hidden')
-    bokoblin.removeAttribute('hidden')
+    enemyImg.removeAttribute('hidden')
     randomQuestion.removeAttribute('hidden')
     randomQuestion.innerText = genRandomQuestion()
     submitBtn.removeAttribute('hidden')
@@ -62,7 +62,7 @@ path2Btn.addEventListener('click', event => {
     path1Btn.setAttribute('hidden', true)
     path2Btn.setAttribute('hidden', true)
     pathTwoImg.setAttribute('hidden', true)
-    bokoblin.removeAttribute('hidden')
+    enemyImg.removeAttribute('hidden')
     enemyHel.removeAttribute('hidden')
     playerHel.removeAttribute('hidden')
     randomQuestion.removeAttribute('hidden')
@@ -71,13 +71,13 @@ path2Btn.addEventListener('click', event => {
 })
 
 bobContinuebtn.addEventListener('click', event => {
-    bokoblin.setAttribute('src', './Images/lynel.jpeg')
+    enemyImg.setAttribute('src', './Images/lynel.jpeg')
     messageEl.innerText = 'As night falls you get closer to the temple.. a lynel has appeared!!'
     bobContinuebtn.setAttribute('hidden', true)
     lynelContinuebtn.removeAttribute('hidden')
 })
 lynelContinuebtn.addEventListener('click', event => {
-    bokoblin.setAttribute('src', './Images/triforce.gif')
+    enemyImg.setAttribute('src', './Images/triforce.gif')
     messageEl.innerText = 'Congratulations, you have reached the triforce!!'
     bobContinuebtn.setAttribute('hidden', true)
     lynelContinuebtn.removeAttribute('hidden')
@@ -105,8 +105,8 @@ function init() {
     // resetBtn.setAttribute('hidden', "") keeping this visible while testing
     enemyHel.setAttribute('hidden', true)
     playerHel.setAttribute('hidden', true)
-    bokoblin.setAttribute('hidden', true)
-    bokoblin.setAttribute('src', './Images/bokoblin.jpeg')
+    enemyImg.setAttribute('hidden', true)
+    enemyImg.setAttribute('src', './Images/bokoblin.jpeg')
     pathOneImg.removeAttribute('hidden')
     pathTwoImg.removeAttribute('hidden')
     path1Btn.removeAttribute('hidden')
@@ -116,6 +116,7 @@ function init() {
     answerInput.setAttribute('hidden', true)
     bobContinuebtn.setAttribute('hidden', true)
     lynelContinuebtn.setAttribute('hidden', true)
+    // playerHel.innerText = 100
     // isWinner = false
     // isLoser = false
     // isPlaying = true
@@ -179,7 +180,16 @@ function renderAns(lastAns) {
 // }
 
 function renderDied() {
-    messageEl.innerText = 'YOU DEAD'
+    enemyImg.setAttribute('src', './Images/youdied.webp')
+    messageEl.setAttribute('hidden', true)
+    bobContinuebtn.setAttribute('hidden', true)
+    lynelContinuebtn.removeAttribute('hidden')
+    enemyHel.setAttribute('hidden', true)
+    playerHel.setAttribute('hidden', true)
+    randomQuestion.setAttribute('hidden', true)
+    submitBtn.setAttribute('hidden', true)
+    answerInput.setAttribute('hidden', true)
+    lynelContinuebtn.setAttribute('hidden', true)
 }
 
 function render() {
