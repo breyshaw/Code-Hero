@@ -147,12 +147,13 @@ correctAns = "a"
 //will work on correctAns when I get there
 // playerHel= 100
 // enemyHel= 100
+
 // lastAns = answerInput
 function renderAns(lastAns) {
     if (lastAns !== correctAns) {
         messageEl.className = 'damage'//to style the text later
         messageEl.innerText = `${lastAns} is wrong! You have taken damage!`
-        // playerHel = playerHel - 20//I know this will probably change when I get into the nitty gritty
+        playerHel.innerHTML = playerHel.innerHTML - 20//I know this will probably change when I get into the nitty gritty
     } else if (lastAns === correctAns) {
         messageEl.className = 'attack'//to style the text later
         messageEl.innerText = `${lastAns} is correct! You inflict damage with the Master Sword!`
