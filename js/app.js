@@ -16,7 +16,8 @@ const messageEl = document.querySelector("#message")
 const resetBtn = document.querySelector("#startOver-btn")
 const path1Btn = document.querySelector("#path-one")
 const path2Btn = document.querySelector("#path-two")
-const enemyHel = document.querySelector("#enemyHealth")
+const bobHel = document.querySelector("#bobHealth")
+const lynHel = document.querySelector("#lynHealth")
 const playerHel = document.querySelector("#playerHealth")
 const enemyImg = document.querySelector("#bokoblin")
 const pathOneImg = document.querySelector("#path1Img")
@@ -40,7 +41,7 @@ path1Btn.addEventListener('click', event => {
     path1Btn.setAttribute('hidden', true)
     path2Btn.setAttribute('hidden', true)
     pathTwoImg.setAttribute('hidden', true)
-    enemyHel.removeAttribute('hidden')
+    bobHel.removeAttribute('hidden')
     playerHel.removeAttribute('hidden')
     enemyImg.removeAttribute('hidden')
     randomQuestion.removeAttribute('hidden')
@@ -48,7 +49,7 @@ path1Btn.addEventListener('click', event => {
     submitBtn.removeAttribute('hidden')
     answerInput.removeAttribute('hidden')
 
-    form.addEventListener('submit', function (evt) {
+    submitBtn.addEventListener('click', function (evt) {
         evt.preventDefault()
         if (isWinner === false) {
             renderAns(answerInput.value)
@@ -71,7 +72,7 @@ path2Btn.addEventListener('click', event => {
     path2Btn.setAttribute('hidden', true)
     pathTwoImg.setAttribute('hidden', true)
     enemyImg.removeAttribute('hidden')
-    enemyHel.removeAttribute('hidden')
+    bobHel.removeAttribute('hidden')
     playerHel.removeAttribute('hidden')
     randomQuestion.removeAttribute('hidden')
     submitBtn.removeAttribute('hidden')
@@ -85,7 +86,7 @@ bobContinuebtn.addEventListener('click', event => {
     path1Btn.setAttribute('hidden', true)
     path2Btn.setAttribute('hidden', true)
     pathTwoImg.setAttribute('hidden', true)
-    enemyHel.removeAttribute('hidden')
+    bobHel.setAttribute('hidden', true)
     playerHel.removeAttribute('hidden')
     enemyImg.removeAttribute('hidden')
     randomQuestion.removeAttribute('hidden')
@@ -94,20 +95,24 @@ bobContinuebtn.addEventListener('click', event => {
     // answerInput.removeAttribute('hidden')
     lynSubmitBtn.removeAttribute('hidden')
     lynAnsInput.removeAttribute('hidden')
-    enemyHel.innerHTML = 100
+    // bobHel.innerHTML = 100
     bobContinuebtn.setAttribute('hidden', true)
+    // lynHel.innerHTML = 100
+    lynHel.removeAttribute('hidden')
+    bobHel.innerHTML = 100
 })
 lynelContinuebtn.addEventListener('click', event => {
     enemyImg.setAttribute('src', './Images/triforce.gif')
     messageEl.innerText = 'Congratulations, you have reached the triforce!!'
     bobContinuebtn.setAttribute('hidden', true)
     lynelContinuebtn.removeAttribute('hidden')
-    enemyHel.setAttribute('hidden', true)
+    bobHel.setAttribute('hidden', true)
     playerHel.setAttribute('hidden', true)
     randomQuestion.setAttribute('hidden', true)
     submitBtn.setAttribute('hidden', true)
     answerInput.setAttribute('hidden', true)
     lynelContinuebtn.setAttribute('hidden', true)
+    lynHel.setAttribute('hidden', true)
 })
 //Apparently this below wont work either, (calling the inBattle function created below on click)
 // path1Btn.addEventListener('click', inBattle())
@@ -125,7 +130,7 @@ function init() {
     messageEl.innerText = 'Choose a path..'
     messageEl.removeAttribute('hidden')
     resetBtn.setAttribute('hidden', "")
-    enemyHel.setAttribute('hidden', true)
+    bobHel.setAttribute('hidden', true)
     playerHel.setAttribute('hidden', true)
     enemyImg.setAttribute('hidden', true)
     enemyImg.setAttribute('src', './Images/bokoblin.jpeg')
@@ -140,6 +145,8 @@ function init() {
     bobContinuebtn.setAttribute('hidden', true)
     lynelContinuebtn.setAttribute('hidden', true)
     playerHel.innerHTML = 100
+    bobHel.innerHTML = 100
+    lynHel.innerHTML = 100
     // isWinner = false
     // isLoser = false
     // isPlaying = true
@@ -180,7 +187,7 @@ function renderAns(lastAns) {
     } else if (lastAns === correctAns) {
         messageEl.className = 'attack'//to style the text later
         messageEl.innerText = `${lastAns} is correct! You inflict damage!`
-        enemyHel.innerHTML = enemyHel.innerHTML - 20
+        bobHel.innerHTML = bobHel.innerHTML - 20
         enemyImg.setAttribute('src', './Images/linkatk.gif')
     }
     render()
@@ -197,7 +204,7 @@ function lynRenderAns(lastAns) {
     } else if (lastAns === correctAns) {
         messageEl.className = 'attack'//to style the text later
         messageEl.innerText = `${lastAns} is correct! You inflict damage!`
-        enemyHel.innerHTML = enemyHel.innerHTML - 10
+        lynHel.innerHTML = lynHel.innerHTML - 10
         // enemyImg.setAttribute('src', './Images/linkatk.gif')
     }
     render()
@@ -221,13 +228,29 @@ function lynRenderAns(lastAns) {
 
 function renderWinBob() {
     bobContinuebtn.removeAttribute('hidden')
-    messageEl.innerText = 'You defeated the enemy!'
-    enemyHel.setAttribute('hidden', true)
+    messageEl.innerText = 'You defeated the bokoblin!'
+    bobHel.setAttribute('hidden', true)
     playerHel.setAttribute('hidden', true)
     randomQuestion.setAttribute('hidden', true)
     submitBtn.setAttribute('hidden', true)
     answerInput.setAttribute('hidden', true)
     resetBtn.setAttribute('hidden', "")
+    bobHel.innerHTML = 100
+}
+
+function renderLynWin () {
+    bobContinuebtn.removeAttribute('hidden')
+    messageEl.innerText = 'You defeated the Lynel!!'
+    bobHel.setAttribute('hidden', true)
+    playerHel.setAttribute('hidden', true)
+    randomQuestion.setAttribute('hidden', true)
+    submitBtn.setAttribute('hidden', true)
+    answerInput.setAttribute('hidden', true)
+    resetBtn.setAttribute('hidden', "")
+    bobContinuebtn.setAttribute("hidden", true)
+    lynelContinuebtn.removeAttribute("hidden")
+    lynSubmitBtn.setAttribute('hidden', true)
+    lynAnsInput.setAttribute('hidden', true)
 }
 
 function renderDied() {
@@ -235,7 +258,7 @@ function renderDied() {
     messageEl.setAttribute('hidden', true)
     bobContinuebtn.setAttribute('hidden', true)
     lynelContinuebtn.removeAttribute('hidden')
-    enemyHel.setAttribute('hidden', true)
+    bobHel.setAttribute('hidden', true)
     playerHel.setAttribute('hidden', true)
     randomQuestion.setAttribute('hidden', true)
     submitBtn.setAttribute('hidden', true)
@@ -247,8 +270,10 @@ function renderDied() {
 function render() {
     if (playerHel.innerHTML < 0) {
         renderDied()
-    } else if (enemyHel.innerHTML <= 0) {
+    } else if (bobHel.innerHTML <= 0) {
         renderWinBob()
+    } else if (lynHel.innerHTML <=0) {
+        renderLynWin()
     }
 }
 
