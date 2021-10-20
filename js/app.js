@@ -26,6 +26,8 @@ const submitBtn = document.querySelector('#answer-button')
 const answerInput = document.querySelector('#answer-input')
 const bobContinuebtn = document.querySelector('#continue-bob')
 const lynelContinuebtn = document.querySelector("#continue-lynel")
+const lynSubmitBtn = document.querySelector('#lynSubmitBtn')
+const lynAnsInput = document.querySelector("#lynAnsInput")
 
 
 // /*----------------------------- Event Listeners -----------------------------*/
@@ -50,6 +52,13 @@ path1Btn.addEventListener('click', event => {
         evt.preventDefault()
         if (isWinner === false) {
             renderAns(answerInput.value)
+        }
+    })
+
+    lynSubmitBtn.addEventListener('click', function (evt) {
+        evt.preventDefault()
+        if (isWinner === false) {
+            lynRenderAns(lynAnsInput.value)
         }
     })
 
@@ -81,8 +90,10 @@ bobContinuebtn.addEventListener('click', event => {
     enemyImg.removeAttribute('hidden')
     randomQuestion.removeAttribute('hidden')
     randomQuestion.innerText = genRandomQuestion()
-    submitBtn.removeAttribute('hidden')
-    answerInput.removeAttribute('hidden')
+    // submitBtn.removeAttribute('hidden')
+    // answerInput.removeAttribute('hidden')
+    lynSubmitBtn.removeAttribute('hidden')
+    lynAnsInput.removeAttribute('hidden')
     enemyHel.innerHTML = 100
     bobContinuebtn.setAttribute('hidden', true)
 })
@@ -112,6 +123,7 @@ init()
 
 function init() {
     messageEl.innerText = 'Choose a path..'
+    messageEl.removeAttribute('hidden')
     resetBtn.setAttribute('hidden', "")
     enemyHel.setAttribute('hidden', true)
     playerHel.setAttribute('hidden', true)
@@ -164,11 +176,28 @@ function renderAns(lastAns) {
         playerHel.innerHTML = playerHel.innerHTML - 20
         //if going the route below, im going to have to make a new renderAns and submit button for the lynel
         //might be worth it because its pretty cool for it to dynamically change like this
+        enemyImg.setAttribute('src', './Images/damboko.gif')
+    } else if (lastAns === correctAns) {
+        messageEl.className = 'attack'//to style the text later
+        messageEl.innerText = `${lastAns} is correct! You inflict damage!`
+        enemyHel.innerHTML = enemyHel.innerHTML - 20
+        enemyImg.setAttribute('src', './Images/linkatk.gif')
+    }
+    render()
+}
+
+function lynRenderAns(lastAns) {
+    if (lastAns !== correctAns) {
+        messageEl.className = 'damage'//to style the text later
+        messageEl.innerText = `${lastAns} is wrong! You have taken damage!`
+        playerHel.innerHTML = playerHel.innerHTML - 25
+        //if going the route below, im going to have to make a new renderAns and submit button for the lynel
+        //might be worth it because its pretty cool for it to dynamically change like this
         // enemyImg.setAttribute('src', './Images/damboko.gif')
     } else if (lastAns === correctAns) {
         messageEl.className = 'attack'//to style the text later
-        messageEl.innerText = `${lastAns} is correct! You inflict damage with the Master Sword!`
-        enemyHel.innerHTML = enemyHel.innerHTML - 20
+        messageEl.innerText = `${lastAns} is correct! You inflict damage!`
+        enemyHel.innerHTML = enemyHel.innerHTML - 10
         // enemyImg.setAttribute('src', './Images/linkatk.gif')
     }
     render()
@@ -212,12 +241,14 @@ function renderDied() {
     submitBtn.setAttribute('hidden', true)
     answerInput.setAttribute('hidden', true)
     lynelContinuebtn.setAttribute('hidden', true)
+    resetBtn.removeAttribute('hidden')
 }
 
 function render() {
-    if (playerHel.innerHTML <= 0) {
+    if (playerHel.innerHTML < 0) {
         renderDied()
     } else if (enemyHel.innerHTML <= 0) {
         renderWinBob()
     }
 }
+
