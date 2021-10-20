@@ -1,7 +1,3 @@
-/*-------------------------------- Constants --------------------------------*/
-
-
-
 /*-------------------------------- Variables --------------------------------*/
 
 // let isWinner, isPlaying, isLoser,
@@ -12,6 +8,7 @@ isLoser = false
 // /*------------------------ Cached Element References ------------------------*/
 
 const form = document.querySelector('#form')
+// const lynform = document.querySelector('#lynform')
 const messageEl = document.querySelector("#message")
 const resetBtn = document.querySelector("#startOver-btn")
 const path1Btn = document.querySelector("#path-one")
@@ -48,6 +45,9 @@ path1Btn.addEventListener('click', event => {
     randomQuestion.innerText = genRandomQuestion()
     submitBtn.removeAttribute('hidden')
     answerInput.removeAttribute('hidden')
+
+    //I'd like to use submit below so that I can hit enter but the game breaks when doing so
+    //Tried creating a seperate form for the lynel submit btn to be in but did not work
 
     submitBtn.addEventListener('click', function (evt) {
         evt.preventDefault()
