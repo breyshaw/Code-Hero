@@ -109,6 +109,7 @@ lynelContinuebtn.addEventListener('click', event => {
     answerInput.setAttribute('hidden', true)
     lynelContinuebtn.setAttribute('hidden', true)
     lynHel.setAttribute('hidden', true)
+    resetBtn.removeAttribute('hidden')
 })
 
 // /*-------------------------------- Functions --------------------------------*/
@@ -149,12 +150,12 @@ correctAns = "a"
 function renderAns(lastAns) {
     if (lastAns !== correctAns) {
         messageEl.className = 'damage'//to style the text later
-        messageEl.innerText = `${lastAns} is wrong! You have taken damage!`
+        messageEl.innerText = `${lastAns} is wrong! You got wrecked with a mop!`
         playerHel.innerHTML = playerHel.innerHTML - 20
         enemyImg.setAttribute('src', './Images/damboko.gif')
     } else if (lastAns === correctAns) {
         messageEl.className = 'attack'//to style the text later
-        messageEl.innerText = `${lastAns} is correct! You inflict damage!`
+        messageEl.innerText = `${lastAns} is correct! You inflict damage on the bokoblin!`
         bobHel.innerHTML = bobHel.innerHTML - 20
         enemyImg.setAttribute('src', './Images/linkatk.gif')
     }
@@ -164,12 +165,12 @@ function renderAns(lastAns) {
 function lynRenderAns(lastAns) {
     if (lastAns !== correctAns) {
         messageEl.className = 'damage'//to style the text later
-        messageEl.innerText = `${lastAns} is wrong! You have taken damage!`
+        messageEl.innerText = `${lastAns} is wrong! Attack of the chickens!!`
         playerHel.innerHTML = playerHel.innerHTML - 25
         enemyImg.setAttribute('src', './Images/lynAtk.gif')
     } else if (lastAns === correctAns) {
         messageEl.className = 'attack'//to style the text later
-        messageEl.innerText = `${lastAns} is correct! You inflict damage!`
+        messageEl.innerText = `${lastAns} is correct! You parry rush the Lynel!`
         lynHel.innerHTML = lynHel.innerHTML - 10
         enemyImg.setAttribute('src', './Images/linkatklynel.gif')
     }
@@ -215,10 +216,13 @@ function renderDied() {
     answerInput.setAttribute('hidden', true)
     lynelContinuebtn.setAttribute('hidden', true)
     resetBtn.removeAttribute('hidden')
+    lynSubmitBtn.setAttribute('hidden', true)
+    lynAnsInput.setAttribute('hidden', true)
+    lynHel.setAttribute('hidden', true)
 }
 
 function render() {
-    if (playerHel.innerHTML < 0) {
+    if (playerHel.innerHTML <= 0) {
         renderDied()
     } else if (bobHel.innerHTML <= 0) {
         renderWinBob()
