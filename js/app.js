@@ -72,8 +72,19 @@ path2Btn.addEventListener('click', event => {
 bobContinuebtn.addEventListener('click', event => {
     enemyImg.setAttribute('src', './Images/lynel.jpeg')
     messageEl.innerText = 'As night falls you get closer to the temple.. a lynel has appeared!!'
+    pathOneImg.setAttribute('hidden', true)
+    path1Btn.setAttribute('hidden', true)
+    path2Btn.setAttribute('hidden', true)
+    pathTwoImg.setAttribute('hidden', true)
+    enemyHel.removeAttribute('hidden')
+    playerHel.removeAttribute('hidden')
+    enemyImg.removeAttribute('hidden')
+    randomQuestion.removeAttribute('hidden')
+    randomQuestion.innerText = genRandomQuestion()
+    submitBtn.removeAttribute('hidden')
+    answerInput.removeAttribute('hidden')
+    enemyHel.innerHTML = 100
     bobContinuebtn.setAttribute('hidden', true)
-    lynelContinuebtn.removeAttribute('hidden')
 })
 lynelContinuebtn.addEventListener('click', event => {
     enemyImg.setAttribute('src', './Images/triforce.gif')
@@ -101,11 +112,12 @@ init()
 
 function init() {
     messageEl.innerText = 'Choose a path..'
-    // resetBtn.setAttribute('hidden', "") keeping this visible while testing
+    resetBtn.setAttribute('hidden', "")
     enemyHel.setAttribute('hidden', true)
     playerHel.setAttribute('hidden', true)
     enemyImg.setAttribute('hidden', true)
     enemyImg.setAttribute('src', './Images/bokoblin.jpeg')
+    // enemyImg.setAttribute('src', './Images/boko.gif')
     pathOneImg.removeAttribute('hidden')
     pathTwoImg.removeAttribute('hidden')
     path1Btn.removeAttribute('hidden')
@@ -150,10 +162,14 @@ function renderAns(lastAns) {
         messageEl.className = 'damage'//to style the text later
         messageEl.innerText = `${lastAns} is wrong! You have taken damage!`
         playerHel.innerHTML = playerHel.innerHTML - 20
+        //if going the route below, im going to have to make a new renderAns and submit button for the lynel
+        //might be worth it because its pretty cool for it to dynamically change like this
+        // enemyImg.setAttribute('src', './Images/damboko.gif')
     } else if (lastAns === correctAns) {
         messageEl.className = 'attack'//to style the text later
         messageEl.innerText = `${lastAns} is correct! You inflict damage with the Master Sword!`
         enemyHel.innerHTML = enemyHel.innerHTML - 20
+        // enemyImg.setAttribute('src', './Images/linkatk.gif')
     }
     render()
 }
@@ -176,7 +192,13 @@ function renderAns(lastAns) {
 
 function renderWinBob() {
     bobContinuebtn.removeAttribute('hidden')
-    messageEl.innerText = 'YOU WON'
+    messageEl.innerText = 'You defeated the enemy!'
+    enemyHel.setAttribute('hidden', true)
+    playerHel.setAttribute('hidden', true)
+    randomQuestion.setAttribute('hidden', true)
+    submitBtn.setAttribute('hidden', true)
+    answerInput.setAttribute('hidden', true)
+    resetBtn.setAttribute('hidden', "")
 }
 
 function renderDied() {
