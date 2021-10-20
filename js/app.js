@@ -91,15 +91,11 @@ bobContinuebtn.addEventListener('click', event => {
     enemyImg.removeAttribute('hidden')
     randomQuestion.removeAttribute('hidden')
     randomQuestion.innerText = genRandomQuestion()
-    // submitBtn.removeAttribute('hidden')
-    // answerInput.removeAttribute('hidden')
     lynSubmitBtn.removeAttribute('hidden')
     lynAnsInput.removeAttribute('hidden')
-    // bobHel.innerHTML = 100
     bobContinuebtn.setAttribute('hidden', true)
-    // lynHel.innerHTML = 100
     lynHel.removeAttribute('hidden')
-    bobHel.innerHTML = 100
+    // bobHel.innerHTML = 100
 })
 lynelContinuebtn.addEventListener('click', event => {
     enemyImg.setAttribute('src', './Images/triforce.gif')
@@ -114,11 +110,6 @@ lynelContinuebtn.addEventListener('click', event => {
     lynelContinuebtn.setAttribute('hidden', true)
     lynHel.setAttribute('hidden', true)
 })
-//Apparently this below wont work either, (calling the inBattle function created below on click)
-// path1Btn.addEventListener('click', inBattle())
-
-
-
 
 // /*-------------------------------- Functions --------------------------------*/
 
@@ -134,7 +125,6 @@ function init() {
     playerHel.setAttribute('hidden', true)
     enemyImg.setAttribute('hidden', true)
     enemyImg.setAttribute('src', './Images/bokoblin.jpeg')
-    // enemyImg.setAttribute('src', './Images/boko.gif')
     pathOneImg.removeAttribute('hidden')
     pathTwoImg.removeAttribute('hidden')
     path1Btn.removeAttribute('hidden')
@@ -147,42 +137,20 @@ function init() {
     playerHel.innerHTML = 100
     bobHel.innerHTML = 100
     lynHel.innerHTML = 100
-    // isWinner = false
-    // isLoser = false
-    // isPlaying = true
-    // inBattle = false
-    // render()
 }
-
-// function inBattle() {
-//     inBattle = true
-//     console.log('inBattle function works!')
-//     // messageEl = randomQuestion()
-//     enemyHel.setAttribute('hidden', false)
-//     playerHel.setAttribute('hidden', false)
-//     enemyImg.setAttribute('hidden', false)
-//     pathOneImg.setAttribute('hidden', true)
-//     pathTwoImg.setAttribute('hidden', true)
-// }
 
 //I will concentrate more on this function later
 function genRandomQuestion() {
     return randomQuestion.innerText = 'This will be a random question (correctAns = a)'
 }
-
-
 correctAns = "a"
-//Render Functions (I think I am struggling here)
-//will work on correctAns when I get there
 
-// lastAns = answerInput
+
 function renderAns(lastAns) {
     if (lastAns !== correctAns) {
         messageEl.className = 'damage'//to style the text later
         messageEl.innerText = `${lastAns} is wrong! You have taken damage!`
         playerHel.innerHTML = playerHel.innerHTML - 20
-        //if going the route below, im going to have to make a new renderAns and submit button for the lynel
-        //might be worth it because its pretty cool for it to dynamically change like this
         enemyImg.setAttribute('src', './Images/damboko.gif')
     } else if (lastAns === correctAns) {
         messageEl.className = 'attack'//to style the text later
@@ -198,33 +166,15 @@ function lynRenderAns(lastAns) {
         messageEl.className = 'damage'//to style the text later
         messageEl.innerText = `${lastAns} is wrong! You have taken damage!`
         playerHel.innerHTML = playerHel.innerHTML - 25
-        //if going the route below, im going to have to make a new renderAns and submit button for the lynel
-        //might be worth it because its pretty cool for it to dynamically change like this
-        // enemyImg.setAttribute('src', './Images/damboko.gif')
+        enemyImg.setAttribute('src', './Images/lynAtk.gif')
     } else if (lastAns === correctAns) {
         messageEl.className = 'attack'//to style the text later
         messageEl.innerText = `${lastAns} is correct! You inflict damage!`
         lynHel.innerHTML = lynHel.innerHTML - 10
-        // enemyImg.setAttribute('src', './Images/linkatk.gif')
+        enemyImg.setAttribute('src', './Images/linkatklynel.gif')
     }
     render()
 }
-
-
-
-// function renderContinue() {
-
-// }
-// function renderPath() {
-//     messageEl.innerText = 'Choose a path..'
-//     resetBtn.setAttribute('hidden', true)
-//     pathOneImg.setAttribute('hidden', false)
-//     pathTwoImg.setAttribute('hidden', false)
-//     // isWinner = false
-    // isLoser = false
-    // isPlaying = true
-    // inBattle() = false
-// }
 
 function renderWinBob() {
     bobContinuebtn.removeAttribute('hidden')
@@ -238,7 +188,7 @@ function renderWinBob() {
     bobHel.innerHTML = 100
 }
 
-function renderLynWin () {
+function renderLynWin() {
     bobContinuebtn.removeAttribute('hidden')
     messageEl.innerText = 'You defeated the Lynel!!'
     bobHel.setAttribute('hidden', true)
@@ -272,7 +222,7 @@ function render() {
         renderDied()
     } else if (bobHel.innerHTML <= 0) {
         renderWinBob()
-    } else if (lynHel.innerHTML <=0) {
+    } else if (lynHel.innerHTML <= 0) {
         renderLynWin()
     }
 }
