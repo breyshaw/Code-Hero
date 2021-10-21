@@ -45,7 +45,9 @@ path1Btn.addEventListener('click', event => {
     randomQuestion.innerText = genRandomQuestion()
     submitBtn.removeAttribute('hidden')
     answerInput.removeAttribute('hidden')
-
+    // genRandomQuestion()
+    // renderRandQuestion()
+})
     //I'd like to use submit below so that I can hit enter but the game breaks when doing so
     //Tried creating a seperate form for the lynel submit btn to be in but did not work
 
@@ -53,6 +55,7 @@ path1Btn.addEventListener('click', event => {
         evt.preventDefault()
         if (isWinner === false) {
             renderAns(answerInput.value)
+            randomQuestion.innerText = genRandomQuestion()
         }
     })
 
@@ -63,7 +66,7 @@ path1Btn.addEventListener('click', event => {
         }
     })
 
-})
+
 
 path2Btn.addEventListener('click', event => {
     messageEl.innerText = 'You chose path two and an enemy has appeared!'
@@ -140,10 +143,22 @@ function init() {
     lynHel.innerHTML = 100
 }
 
+let questions = [
+    '2+2',
+    '4+4',
+]
+
 //I will concentrate more on this function later
 function genRandomQuestion() {
-    return randomQuestion.innerText = 'This will be a random question (correctAns = a)'
+    let randIdx = Math.floor(Math.random() * questions.length)
+    return questions[randIdx]
+
 }
+
+// function renderRandQuestion() {
+//     questions[randIdx] = randomQuestion.innerText
+// }
+
 correctAns = "a"
 
 
@@ -228,6 +243,8 @@ function render() {
         renderWinBob()
     } else if (lynHel.innerHTML <= 0) {
         renderLynWin()
+    } else if (winner=false) {
+        genRandomQuestion()
     }
 }
 
