@@ -12,7 +12,8 @@ Here is the initial battle wire-frame:
 
 
 Here is the battle, post styling:
-<img src="./Images/currentBattle.png" width="450" height="300">
+<img src="./Images/currentBattle.png" width="450" height="300">     
+
 In the image the previous question was 4+4=?
 Once the user's answer is submitted, a new question is randomly generated.
 
