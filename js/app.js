@@ -42,7 +42,8 @@ path1Btn.addEventListener('click', event => {
     playerHel.removeAttribute('hidden')
     enemyImg.removeAttribute('hidden')
     randomQuestion.removeAttribute('hidden')
-    randomQuestion.innerText = genRandomQuestion()
+    genRandomQuestion()
+    randomQuestion.innerText = currentQuestion.prompt
     submitBtn.removeAttribute('hidden')
     answerInput.removeAttribute('hidden')
     // genRandomQuestion()
@@ -55,7 +56,6 @@ path1Btn.addEventListener('click', event => {
         evt.preventDefault()
         if (isWinner === false) {
             renderAns(answerInput.value)
-            randomQuestion.innerText = genRandomQuestion()
         }
     })
 
@@ -143,15 +143,17 @@ function init() {
     lynHel.innerHTML = 100
 }
 
+let randIdx
+let currentQuestion
+
 let questions = [
-    '2+2',
-    '4+4',
+    {prompt: '2+2', correctAns: '4'},
+    {prompt: '4+4', correctAns: '8'}
 ]
 
-//I will concentrate more on this function later
 function genRandomQuestion() {
     let randIdx = Math.floor(Math.random() * questions.length)
-    return questions[randIdx]
+    currentQuestion = questions[randIdx]
 
 }
 
@@ -163,17 +165,19 @@ correctAns = "a"
 
 
 function renderAns(lastAns) {
-    if (lastAns !== correctAns) {
+    if (lastAns !== currentQuestion.correctAns) {
         messageEl.className = 'damage'//to style the text later
         messageEl.innerText = `${lastAns} is wrong! You got wrecked with a mop!`
         playerHel.innerHTML = playerHel.innerHTML - 20
         enemyImg.setAttribute('src', './Images/damboko.gif')
-    } else if (lastAns === correctAns) {
+    } else if (lastAns === currentQuestion.correctAns) {
         messageEl.className = 'attack'//to style the text later
         messageEl.innerText = `${lastAns} is correct! You inflict damage on the bokoblin!`
         bobHel.innerHTML = bobHel.innerHTML - 20
         enemyImg.setAttribute('src', './Images/linkatk.gif')
     }
+    genRandomQuestion()
+    randomQuestion.innerText = currentQuestion.prompt
     render()
 }
 
