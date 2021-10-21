@@ -4,8 +4,8 @@ isLoser = false
 let randIdx
 let currentQuestion
 let questions = [
-    {prompt: '2+2', correctAns: '4'},
-    {prompt: '4+4', correctAns: '8'}
+    { prompt: 'Do all variables have a data type? Submit yes or no.', correctAns: 'yes' },
+    { prompt: '4+4', correctAns: '8' }
 ]
 correctAns = ""
 
@@ -16,13 +16,10 @@ const form = document.querySelector('#form')
 const messageEl = document.querySelector("#message")
 const resetBtn = document.querySelector("#startOver-btn")
 const path1Btn = document.querySelector("#path-one")
-// const path2Btn = document.querySelector("#path-two")
 const bobHel = document.querySelector("#bobHealth")
 const lynHel = document.querySelector("#lynHealth")
 const playerHel = document.querySelector("#playerHealth")
 const enemyImg = document.querySelector("#bokoblin")
-// const pathOneImg = document.querySelector("#path1Img")
-// const pathTwoImg = document.querySelector("#path2Img")
 const randomQuestion = document.querySelector('#random-question')
 const submitBtn = document.querySelector('#answer-button')
 const answerInput = document.querySelector('#answer-input')
@@ -39,11 +36,8 @@ const footer = document.querySelector("#footer")
 resetBtn.addEventListener('click', init)
 
 path1Btn.addEventListener('click', event => {
-    messageEl.innerText = 'You choose Hyrule. As you are walking towards the alluring Temple of Time, a bokoblin appeared!'
-    // pathOneImg.setAttribute('hidden', true)
+    messageEl.innerText = 'As you are walking towards the alluring Temple of Time, a bokoblin appeared!'
     path1Btn.setAttribute('hidden', true)
-    // path2Btn.setAttribute('hidden', true)
-    // pathTwoImg.setAttribute('hidden', true)
     bobHel.removeAttribute('hidden')
     playerHel.removeAttribute('hidden')
     enemyImg.removeAttribute('hidden')
@@ -56,39 +50,22 @@ path1Btn.addEventListener('click', event => {
     footer.removeAttribute('hidden')
     title.innerText = "Enemy Health:"
     title.className = "damage"
+    randomQuestion.className = 'damage'
 })
-    //I'd like to use submit below so that I can hit enter but the game breaks when doing so
-    //Tried creating a seperate form for the lynel submit btn to be in but did not work
 
-    submitBtn.addEventListener('click', function (evt) {
-        evt.preventDefault()
-        if (isWinner === false) {
-            renderAns(answerInput.value)
-        }
-    })
+submitBtn.addEventListener('click', function (evt) {
+    evt.preventDefault()
+    if (isWinner === false) {
+        renderAns(answerInput.value)
+    }
+})
 
-    lynSubmitBtn.addEventListener('click', function (evt) {
-        evt.preventDefault()
-        if (isWinner === false) {
-            lynRenderAns(lynAnsInput.value)
-        }
-    })
-
-
-
-// path2Btn.addEventListener('click', event => {
-//     messageEl.innerText = 'You chose path two and an enemy has appeared!'
-//     pathOneImg.setAttribute('hidden', true)
-//     path1Btn.setAttribute('hidden', true)
-//     path2Btn.setAttribute('hidden', true)
-//     pathTwoImg.setAttribute('hidden', true)
-//     enemyImg.removeAttribute('hidden')
-//     bobHel.removeAttribute('hidden')
-//     playerHel.removeAttribute('hidden')
-//     randomQuestion.removeAttribute('hidden')
-//     submitBtn.removeAttribute('hidden')
-//     answer.removeAttribute('hidden')
-// })
+lynSubmitBtn.addEventListener('click', function (evt) {
+    evt.preventDefault()
+    if (isWinner === false) {
+        lynRenderAns(lynAnsInput.value)
+    }
+})
 
 bobContinuebtn.addEventListener('click', event => {
     enemyImg.setAttribute('src', './Images/lynel.jpeg')
@@ -107,7 +84,11 @@ bobContinuebtn.addEventListener('click', event => {
     lynHel.removeAttribute('hidden')
     genRandomQuestion()
     randomQuestion.innerText = currentQuestion.prompt
+    messageEl.className = 'message'
+    title.removeAttribute('hidden')
+    footer.removeAttribute('hidden')
 })
+
 lynelContinuebtn.addEventListener('click', event => {
     enemyImg.setAttribute('src', './Images/triforce.gif')
     messageEl.innerText = 'Congratulations, you have reached the triforce!!'
@@ -121,6 +102,8 @@ lynelContinuebtn.addEventListener('click', event => {
     lynelContinuebtn.setAttribute('hidden', true)
     lynHel.setAttribute('hidden', true)
     resetBtn.removeAttribute('hidden')
+    title.setAttribute('hidden', true)
+    footer.setAttribute('hidden', true)
 })
 
 // /*-------------------------------- Functions --------------------------------*/
@@ -128,7 +111,6 @@ lynelContinuebtn.addEventListener('click', event => {
 init()
 
 function init() {
-    title.innerText = "CODE HERO"
     messageEl.innerText = 'Click below to start your adventure!'
     intro.removeAttribute("hidden")
     intro.setAttribute('src', './Images/intro.gif')
@@ -138,16 +120,16 @@ function init() {
     playerHel.setAttribute('hidden', true)
     enemyImg.setAttribute('hidden', true)
     enemyImg.setAttribute('src', './Images/bokoblin.jpeg')
-    // pathOneImg.removeAttribute('hidden')
-    // pathTwoImg.removeAttribute('hidden')
     path1Btn.removeAttribute('hidden')
-    // path2Btn.removeAttribute('hidden')
     randomQuestion.setAttribute('hidden', true)
     submitBtn.setAttribute('hidden', true)
     answerInput.setAttribute('hidden', true)
     bobContinuebtn.setAttribute('hidden', true)
     lynelContinuebtn.setAttribute('hidden', true)
     footer.setAttribute('hidden', true)
+    title.removeAttribute('hidden')
+    title.innerText = 'Code Hero'
+    title.className = 'title'
     playerHel.innerHTML = 100
     bobHel.innerHTML = 100
     lynHel.innerHTML = 100
@@ -203,10 +185,11 @@ function renderWinBob() {
     answerInput.setAttribute('hidden', true)
     resetBtn.setAttribute('hidden', "")
     bobHel.innerHTML = 100
+    title.setAttribute('hidden', true)
+    footer.setAttribute('hidden', true)
 }
 
 function renderLynWin() {
-    bobContinuebtn.removeAttribute('hidden')
     messageEl.innerText = 'You defeated the Lynel!!'
     bobHel.setAttribute('hidden', true)
     playerHel.setAttribute('hidden', true)
@@ -218,6 +201,10 @@ function renderLynWin() {
     lynelContinuebtn.removeAttribute("hidden")
     lynSubmitBtn.setAttribute('hidden', true)
     lynAnsInput.setAttribute('hidden', true)
+    title.setAttribute('hidden', true)
+    footer.setAttribute('hidden', true)
+    lynHel.setAttribute('hidden', true)
+    messageEl.className = 'message'
 }
 
 function renderDied() {
@@ -244,6 +231,6 @@ function render() {
         renderWinBob()
     } else if (lynHel.innerHTML <= 0) {
         renderLynWin()
-    } 
+    }
 }
 
