@@ -15,7 +15,7 @@ Here is the battle, post styling:
 <img src="./Images/currentBattle.png" width="450" height="300">     
 
 In the image the previous question was 4+4=?
-Once the user's answer is submitted, a new question is randomly generated.
+Once the player's answer is submitted, a new question is randomly generated. Against this specific enemy, submitting the correct ans (8) will deduct 20 points from the enemy's health. If the answer is incorrect, 20 points are deducted from the player's health.
 
 
 Technology Implemented:

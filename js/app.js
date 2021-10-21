@@ -1,14 +1,17 @@
 /*-------------------------------- Variables --------------------------------*/
-
-// let isWinner, isPlaying, isLoser,
-
 isWinner = false
 isLoser = false
+let randIdx
+let currentQuestion
+let questions = [
+    {prompt: '2+2', correctAns: '4'},
+    {prompt: '4+4', correctAns: '8'}
+]
+correctAns = ""
 
 // /*------------------------ Cached Element References ------------------------*/
 
 const form = document.querySelector('#form')
-// const lynform = document.querySelector('#lynform')
 const messageEl = document.querySelector("#message")
 const resetBtn = document.querySelector("#startOver-btn")
 const path1Btn = document.querySelector("#path-one")
@@ -46,8 +49,6 @@ path1Btn.addEventListener('click', event => {
     randomQuestion.innerText = currentQuestion.prompt
     submitBtn.removeAttribute('hidden')
     answerInput.removeAttribute('hidden')
-    // genRandomQuestion()
-    // renderRandQuestion()
 })
     //I'd like to use submit below so that I can hit enter but the game breaks when doing so
     //Tried creating a seperate form for the lynel submit btn to be in but did not work
@@ -93,12 +94,12 @@ bobContinuebtn.addEventListener('click', event => {
     playerHel.removeAttribute('hidden')
     enemyImg.removeAttribute('hidden')
     randomQuestion.removeAttribute('hidden')
-    randomQuestion.innerText = genRandomQuestion()
     lynSubmitBtn.removeAttribute('hidden')
     lynAnsInput.removeAttribute('hidden')
     bobContinuebtn.setAttribute('hidden', true)
     lynHel.removeAttribute('hidden')
-    // bobHel.innerHTML = 100
+    genRandomQuestion()
+    randomQuestion.innerText = currentQuestion.prompt
 })
 lynelContinuebtn.addEventListener('click', event => {
     enemyImg.setAttribute('src', './Images/triforce.gif')
@@ -116,8 +117,6 @@ lynelContinuebtn.addEventListener('click', event => {
 })
 
 // /*-------------------------------- Functions --------------------------------*/
-
-
 
 init()
 
@@ -143,26 +142,11 @@ function init() {
     lynHel.innerHTML = 100
 }
 
-let randIdx
-let currentQuestion
-
-let questions = [
-    {prompt: '2+2', correctAns: '4'},
-    {prompt: '4+4', correctAns: '8'}
-]
-
 function genRandomQuestion() {
     let randIdx = Math.floor(Math.random() * questions.length)
     currentQuestion = questions[randIdx]
 
 }
-
-// function renderRandQuestion() {
-//     questions[randIdx] = randomQuestion.innerText
-// }
-
-correctAns = "a"
-
 
 function renderAns(lastAns) {
     if (lastAns !== currentQuestion.correctAns) {
@@ -182,17 +166,19 @@ function renderAns(lastAns) {
 }
 
 function lynRenderAns(lastAns) {
-    if (lastAns !== correctAns) {
+    if (lastAns !== currentQuestion.correctAns) {
         messageEl.className = 'damage'//to style the text later
         messageEl.innerText = `${lastAns} is wrong! Attack of the chickens!!`
         playerHel.innerHTML = playerHel.innerHTML - 25
         enemyImg.setAttribute('src', './Images/lynAtk.gif')
-    } else if (lastAns === correctAns) {
+    } else if (lastAns === currentQuestion.correctAns) {
         messageEl.className = 'attack'//to style the text later
         messageEl.innerText = `${lastAns} is correct! You parry rush the Lynel!`
         lynHel.innerHTML = lynHel.innerHTML - 10
         enemyImg.setAttribute('src', './Images/linkatklynel.gif')
     }
+    genRandomQuestion()
+    randomQuestion.innerText = currentQuestion.prompt
     render()
 }
 
