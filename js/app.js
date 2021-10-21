@@ -70,10 +70,7 @@ lynSubmitBtn.addEventListener('click', function (evt) {
 bobContinuebtn.addEventListener('click', event => {
     enemyImg.setAttribute('src', './Images/lynel.jpeg')
     messageEl.innerText = 'As night falls you get closer to the temple.. a lynel has appeared!!'
-    // pathOneImg.setAttribute('hidden', true)
     path1Btn.setAttribute('hidden', true)
-    // path2Btn.setAttribute('hidden', true)
-    // pathTwoImg.setAttribute('hidden', true)
     bobHel.setAttribute('hidden', true)
     playerHel.removeAttribute('hidden')
     enemyImg.removeAttribute('hidden')
