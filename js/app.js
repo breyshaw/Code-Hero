@@ -30,6 +30,8 @@ const bobContinuebtn = document.querySelector('#continue-bob')
 const lynelContinuebtn = document.querySelector("#continue-lynel")
 const lynSubmitBtn = document.querySelector('#lynSubmitBtn')
 const lynAnsInput = document.querySelector("#lynAnsInput")
+const title = document.querySelector('#title')
+const footer = document.querySelector("#footer")
 
 
 // /*----------------------------- Event Listeners -----------------------------*/
@@ -51,6 +53,9 @@ path1Btn.addEventListener('click', event => {
     submitBtn.removeAttribute('hidden')
     answerInput.removeAttribute('hidden')
     intro.setAttribute('hidden', true)
+    footer.removeAttribute('hidden')
+    title.innerText = "Enemy Health:"
+    title.className = "damage"
 })
     //I'd like to use submit below so that I can hit enter but the game breaks when doing so
     //Tried creating a seperate form for the lynel submit btn to be in but did not work
@@ -123,6 +128,7 @@ lynelContinuebtn.addEventListener('click', event => {
 init()
 
 function init() {
+    title.innerText = "CODE HERO"
     messageEl.innerText = 'Click below to start your adventure!'
     intro.removeAttribute("hidden")
     intro.setAttribute('src', './Images/intro.gif')
@@ -141,6 +147,7 @@ function init() {
     answerInput.setAttribute('hidden', true)
     bobContinuebtn.setAttribute('hidden', true)
     lynelContinuebtn.setAttribute('hidden', true)
+    footer.setAttribute('hidden', true)
     playerHel.innerHTML = 100
     bobHel.innerHTML = 100
     lynHel.innerHTML = 100

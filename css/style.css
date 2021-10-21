@@ -11,7 +11,7 @@ body {
     background-color: black;
     text-align: center;
     font-family: HyliaSerifBeta-Regular;
-    margin-top: 100px;
+    margin-top: 50px;
     font-size: auto;
 }
 
@@ -36,5 +36,30 @@ img.resize {
 
 .attack {
     color: green
+}
+
+
+#footer {
+    margin-bottom: 0px;
+}
+
+
+#playerHealth {
+    margin-top: 0px;
+}
+
+#title {
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+
+#bobHealth {
+    margin-bottom: 10px;
+    margin-top: 0px;
+}
+
+#lynHealth {
+    margin-bottom: 10px;
+    margin-top: 0px;
 }
 

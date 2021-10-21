@@ -11,13 +11,13 @@
 </head>
 
 <body>
-    <h1>Hero of Code</h1>
+    <h1 id="title"></h1>
     <img id="intro" hidden></img>
     <section>
     <!-- <div id="path2Img"hidden>Path two</div> -->
-    <h2 hidden id="enemy-hp">Enemy HP</h2>
-    <h2 id="bobHealth" hidden>100</h2>
-    <h2 id="lynHealth" hidden>100</h2>
+    <!-- <h2 hidden id="enemy-hp">Enemy HP</h2> -->
+    <h2 id="bobHealth" class="damage" hidden>100</h2>
+    <h2 id="lynHealth" class="damage" hidden>100</h2>
     <img id="bokoblin" class="resize" src='./Images/bokoblin.jpeg'></img>
     <form id='form'>
         <h2 id="message"></h2>
@@ -36,7 +36,8 @@
     </form>
     <button id="continue-bob" hidden>Continue to the Temple</button>
     <button id="continue-lynel" hidden>Continue to the Triforce!</button>
-    <footer id="playerHealth" type=number hidden="true">100</footer>
+    <h3 id="footer">Player Health:</h3>
+    <h2 id="playerHealth" type=number hidden="true">100</h2>
 </section>
 </body>
 <script src="./js/app.js"></script>
