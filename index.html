@@ -7,16 +7,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hero of Code</title>
+    
 </head>
 
 <body>
     <h1>Hero of Code</h1>
-    <div id="path1Img">HYRULE</div>
-    <div id="path2Img">Path two</div>
+    <img id="intro" hidden></img>
+    <section>
+    <!-- <div id="path2Img"hidden>Path two</div> -->
+    <h2 hidden id="enemy-hp">Enemy HP</h2>
     <h2 id="bobHealth" hidden>100</h2>
     <h2 id="lynHealth" hidden>100</h2>
     <img id="bokoblin" class="resize" src='./Images/bokoblin.jpeg'></img>
-    <h2 id="message">message</h2>
     <form id='form'>
         <h2 id="message"></h2>
         <h2 id="random-question" hidden></h2>
@@ -28,13 +30,14 @@
         <button id="path-one" type="button">
             Wake up Link!
         </button>
-        <button id="path-two" type="button">
+        <!-- <button id="path-two" type="button">
             Path Two
-        </button>
+        </button> -->
     </form>
     <button id="continue-bob" hidden>Continue to the Temple</button>
     <button id="continue-lynel" hidden>Continue to the Triforce!</button>
     <footer id="playerHealth" type=number hidden="true">100</footer>
+</section>
 </body>
 <script src="./js/app.js"></script>
 

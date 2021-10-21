@@ -1,18 +1,40 @@
-.invisible {
-    display: none;
+@font-face {
+    font-family: HyliaSerifBeta-Regular;
+    src: url('/font/HyliaSerifBeta-Regular.otf');
 }
 
 body {
-    color: red;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    color: cornflowerblue;
     background-color: black;
     text-align: center;
-    font-style: italic;
-    font-weight: bold;
-    font-family: Arial, Helvetica, sans-serif;
-    margin-top: 10%;
+    font-family: HyliaSerifBeta-Regular;
+    margin-top: 100px;
+    font-size: auto;
 }
 
 img.resize {
-    width:540px;
-    height: auto;
+    width:720px;
+    height: 450px;
+} 
+
+#intro {
+    align-self: center;
+    width:720px;
+    height: 450px;
 }
+
+#random-question {
+    font-size: 200%;
+}
+
+.damage {
+    color: red
+}
+
+.attack {
+    color: green
+}
+

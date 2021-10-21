@@ -11,17 +11,18 @@ correctAns = ""
 
 // /*------------------------ Cached Element References ------------------------*/
 
+const intro = document.querySelector('#intro')
 const form = document.querySelector('#form')
 const messageEl = document.querySelector("#message")
 const resetBtn = document.querySelector("#startOver-btn")
 const path1Btn = document.querySelector("#path-one")
-const path2Btn = document.querySelector("#path-two")
+// const path2Btn = document.querySelector("#path-two")
 const bobHel = document.querySelector("#bobHealth")
 const lynHel = document.querySelector("#lynHealth")
 const playerHel = document.querySelector("#playerHealth")
 const enemyImg = document.querySelector("#bokoblin")
-const pathOneImg = document.querySelector("#path1Img")
-const pathTwoImg = document.querySelector("#path2Img")
+// const pathOneImg = document.querySelector("#path1Img")
+// const pathTwoImg = document.querySelector("#path2Img")
 const randomQuestion = document.querySelector('#random-question')
 const submitBtn = document.querySelector('#answer-button')
 const answerInput = document.querySelector('#answer-input')
@@ -37,10 +38,10 @@ resetBtn.addEventListener('click', init)
 
 path1Btn.addEventListener('click', event => {
     messageEl.innerText = 'You choose Hyrule. As you are walking towards the alluring Temple of Time, a bokoblin appeared!'
-    pathOneImg.setAttribute('hidden', true)
+    // pathOneImg.setAttribute('hidden', true)
     path1Btn.setAttribute('hidden', true)
-    path2Btn.setAttribute('hidden', true)
-    pathTwoImg.setAttribute('hidden', true)
+    // path2Btn.setAttribute('hidden', true)
+    // pathTwoImg.setAttribute('hidden', true)
     bobHel.removeAttribute('hidden')
     playerHel.removeAttribute('hidden')
     enemyImg.removeAttribute('hidden')
@@ -49,6 +50,7 @@ path1Btn.addEventListener('click', event => {
     randomQuestion.innerText = currentQuestion.prompt
     submitBtn.removeAttribute('hidden')
     answerInput.removeAttribute('hidden')
+    intro.setAttribute('hidden', true)
 })
     //I'd like to use submit below so that I can hit enter but the game breaks when doing so
     //Tried creating a seperate form for the lynel submit btn to be in but did not work
@@ -69,27 +71,27 @@ path1Btn.addEventListener('click', event => {
 
 
 
-path2Btn.addEventListener('click', event => {
-    messageEl.innerText = 'You chose path two and an enemy has appeared!'
-    pathOneImg.setAttribute('hidden', true)
-    path1Btn.setAttribute('hidden', true)
-    path2Btn.setAttribute('hidden', true)
-    pathTwoImg.setAttribute('hidden', true)
-    enemyImg.removeAttribute('hidden')
-    bobHel.removeAttribute('hidden')
-    playerHel.removeAttribute('hidden')
-    randomQuestion.removeAttribute('hidden')
-    submitBtn.removeAttribute('hidden')
-    answer.removeAttribute('hidden')
-})
+// path2Btn.addEventListener('click', event => {
+//     messageEl.innerText = 'You chose path two and an enemy has appeared!'
+//     pathOneImg.setAttribute('hidden', true)
+//     path1Btn.setAttribute('hidden', true)
+//     path2Btn.setAttribute('hidden', true)
+//     pathTwoImg.setAttribute('hidden', true)
+//     enemyImg.removeAttribute('hidden')
+//     bobHel.removeAttribute('hidden')
+//     playerHel.removeAttribute('hidden')
+//     randomQuestion.removeAttribute('hidden')
+//     submitBtn.removeAttribute('hidden')
+//     answer.removeAttribute('hidden')
+// })
 
 bobContinuebtn.addEventListener('click', event => {
     enemyImg.setAttribute('src', './Images/lynel.jpeg')
     messageEl.innerText = 'As night falls you get closer to the temple.. a lynel has appeared!!'
-    pathOneImg.setAttribute('hidden', true)
+    // pathOneImg.setAttribute('hidden', true)
     path1Btn.setAttribute('hidden', true)
-    path2Btn.setAttribute('hidden', true)
-    pathTwoImg.setAttribute('hidden', true)
+    // path2Btn.setAttribute('hidden', true)
+    // pathTwoImg.setAttribute('hidden', true)
     bobHel.setAttribute('hidden', true)
     playerHel.removeAttribute('hidden')
     enemyImg.removeAttribute('hidden')
@@ -121,17 +123,19 @@ lynelContinuebtn.addEventListener('click', event => {
 init()
 
 function init() {
-    messageEl.innerText = 'Choose a path..'
+    messageEl.innerText = 'Click below to start your adventure!'
+    intro.removeAttribute("hidden")
+    intro.setAttribute('src', './Images/intro.gif')
     messageEl.removeAttribute('hidden')
     resetBtn.setAttribute('hidden', "")
     bobHel.setAttribute('hidden', true)
     playerHel.setAttribute('hidden', true)
     enemyImg.setAttribute('hidden', true)
     enemyImg.setAttribute('src', './Images/bokoblin.jpeg')
-    pathOneImg.removeAttribute('hidden')
-    pathTwoImg.removeAttribute('hidden')
+    // pathOneImg.removeAttribute('hidden')
+    // pathTwoImg.removeAttribute('hidden')
     path1Btn.removeAttribute('hidden')
-    path2Btn.removeAttribute('hidden')
+    // path2Btn.removeAttribute('hidden')
     randomQuestion.setAttribute('hidden', true)
     submitBtn.setAttribute('hidden', true)
     answerInput.setAttribute('hidden', true)
@@ -233,8 +237,6 @@ function render() {
         renderWinBob()
     } else if (lynHel.innerHTML <= 0) {
         renderLynWin()
-    } else if (winner=false) {
-        genRandomQuestion()
-    }
+    } 
 }
 
