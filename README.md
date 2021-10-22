@@ -2,7 +2,7 @@
 
 Code Hero is a fun and dynamic quiz game that sharpens basic javascript knowledge through Zelda-themed battles. 
 
-Play the game [here](https://breyshaw.github.io/Code-Hero/).
+Play the game [here](code-hero.surge.sh).
 
 ## Motivation: 
 I wanted to create an engaging way to review fundamental Javascript concepts. I thought a battle structure of the quiz would be an entertaining and challenging way to make sure one  stays consistent in their Javascript knowledge. I hope this game will help others in need of a fun JavaScript review.
