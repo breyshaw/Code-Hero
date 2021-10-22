@@ -14,7 +14,7 @@ Here is the initial battle wire-frame:
 
 Here is the battle, post styling:
 <p></p>
-<img src="./Images/currentBattle.png" width="450" height="300">     
+<img src="./Images/currentBattle.png" width="450" height="375">     
 
 In the image the previous question was a True or False.
 Once the player's answer is submitted, a new question is randomly generated. Against this specific enemy, submitting the correct answer will deduct 20 points from the enemy's health. If the submitted answer is incorrect, 20 points are deducted from the player's health.
