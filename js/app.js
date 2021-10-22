@@ -5,7 +5,23 @@ let randIdx
 let currentQuestion
 let questions = [
     { prompt: 'Do all variables have a data type? Submit yes or no.', correctAns: 'yes' },
-    { prompt: '4+4', correctAns: '8' }
+    { prompt: `True or False: Control Flow is the execution of sequence of instructions in a program determined at run time with the use of control structures`, correctAns: 'true' },
+    { prompt: 'The three primary types of control flow are: Sequence, looping, and _________. ', correctAns: 'branching' },
+    { prompt: `What does expression 'happy' || 'sad' return?`, correctAns: 'happy' },
+    { prompt: 'True or False. Each element in an array can hold any data type including objects, functions, even other arrays.', correctAns: 'true' },
+    { prompt: 'What is the best method to use to iterate through an entire array?', correctAns: 'foreach' },
+    { prompt: `What is the index number of 'green' in this array? const colors = ['red','green','blue']`, correctAns: '1' },
+    { prompt: 'What method is used to copy a number of elements into a new array?', correctAns: 'slice'},
+    { prompt: 'True or False. There is no difference between an argument and a parameter.', correctAns: 'false' },
+    { prompt: 'An object is a collection of zero or more ___________.', correctAns: 'properties' },
+    { prompt: 'Properties are key : ______ pairs.', correctAns: 'value'},
+    { prompt: 'True or False: The for..in loop is used to iterate over the keys of an object.', correctAns: 'true'},
+    { prompt: 'What does the acronym OOP stand for? Use spacing in the answer.', correctAns: 'object oriented programming'},
+    { prompt: 'True or False: Encapsulation is a central principle of object-oriented programming.', correctAns: 'true'},
+    { prompt: 'What is the JS keyword used to define a class?', correctAns: 'class'},
+    { prompt: 'What is the name of the method in a class that is automatically called when we instantiate a class?', correctAns: 'constructor'},
+    { prompt: 'True or False: The constructor method’s purpose is to initialize the data properties of the new object being created (represented by this). ', correctAns: 'true'},
+    { prompt: 'True or False: The methods in a class definition are seperated by a comma.', correctAns: 'false'},
 ]
 correctAns = ""
 
@@ -36,7 +52,8 @@ const footer = document.querySelector("#footer")
 resetBtn.addEventListener('click', init)
 
 path1Btn.addEventListener('click', event => {
-    messageEl.innerText = 'As you are walking towards the alluring Temple of Time, a bokoblin appeared!'
+    messageEl.innerText = 'As you are walking towards the alluring Temple of Time, a bokoblin appeared! Answer the questions below to battle!'
+    messageEl.className = 'damage'
     path1Btn.setAttribute('hidden', true)
     bobHel.removeAttribute('hidden')
     playerHel.removeAttribute('hidden')
@@ -50,7 +67,6 @@ path1Btn.addEventListener('click', event => {
     footer.removeAttribute('hidden')
     title.innerText = "Enemy Health:"
     title.className = "damage"
-    randomQuestion.className = 'damage'
 })
 
 submitBtn.addEventListener('click', function (evt) {

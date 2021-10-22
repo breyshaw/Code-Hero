@@ -67,5 +67,19 @@ img {
     margin-top: 0px;
 }
 
+button {
+    font-family: HyliaSerifBeta-Regular;
+    border-radius: 5px;
+    height: 50px;
+    font-size: 25px;
+    background-color: cornflowerblue;
+}
+
+input {
+    font-family: HyliaSerifBeta-Regular;
+    height: 25px;
+    font-size: 25px;
+}
+
 
 
