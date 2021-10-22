@@ -11,17 +11,17 @@ let questions = [
     { prompt: 'True or False. Each element in an array can hold any data type including objects, functions, even other arrays.', correctAns: 'true' },
     { prompt: 'What is the best method to use to iterate through an entire array?', correctAns: 'foreach' },
     { prompt: `What is the index number of 'green' in this array? const colors = ['red','green','blue']`, correctAns: '1' },
-    { prompt: 'What method is used to copy a number of elements into a new array?', correctAns: 'slice'},
+    { prompt: 'What method is used to copy a number of elements into a new array?', correctAns: 'slice' },
     { prompt: 'True or False. There is no difference between an argument and a parameter.', correctAns: 'false' },
     { prompt: 'An object is a collection of zero or more ___________.', correctAns: 'properties' },
-    { prompt: 'Properties are key : ______ pairs.', correctAns: 'value'},
-    { prompt: 'True or False: The for..in loop is used to iterate over the keys of an object.', correctAns: 'true'},
-    { prompt: 'What does the acronym OOP stand for? Use spacing in the answer.', correctAns: 'object oriented programming'},
-    { prompt: 'True or False: Encapsulation is a central principle of object-oriented programming.', correctAns: 'true'},
-    { prompt: 'What is the JS keyword used to define a class?', correctAns: 'class'},
-    { prompt: 'What is the name of the method in a class that is automatically called when we instantiate a class?', correctAns: 'constructor'},
-    { prompt: 'True or False: The constructor method’s purpose is to initialize the data properties of the new object being created (represented by this). ', correctAns: 'true'},
-    { prompt: 'True or False: The methods in a class definition are seperated by a comma.', correctAns: 'false'},
+    { prompt: 'Properties are key : ______ pairs.', correctAns: 'value' },
+    { prompt: 'True or False: The for..in loop is used to iterate over the keys of an object.', correctAns: 'true' },
+    { prompt: 'What does the acronym OOP stand for? Use spacing in the answer.', correctAns: 'object oriented programming' },
+    { prompt: 'True or False: Encapsulation is a central principle of object-oriented programming.', correctAns: 'true' },
+    { prompt: 'What is the JS keyword used to define a class?', correctAns: 'class' },
+    { prompt: 'What is the name of the method that is automatically called when we instantiate a class?', correctAns: 'constructor' },
+    { prompt: 'True or False: The constructor method’s purpose is to initialize the data properties of the new object being created (represented by this). ', correctAns: 'true' },
+    { prompt: 'True or False: The methods in a class definition are seperated by a comma.', correctAns: 'false' },
 ]
 correctAns = ""
 
@@ -85,7 +85,8 @@ lynSubmitBtn.addEventListener('click', function (evt) {
 
 bobContinuebtn.addEventListener('click', event => {
     enemyImg.setAttribute('src', './Images/lynel.jpeg')
-    messageEl.innerText = 'As night falls you get closer to the temple.. a lynel has appeared!!'
+    messageEl.innerText = 'As night falls you get closer to the temple.. a lynel has appeared!! Answer the questions below to battle!'
+    messageEl.className = 'damage'
     path1Btn.setAttribute('hidden', true)
     bobHel.setAttribute('hidden', true)
     playerHel.removeAttribute('hidden')
@@ -97,7 +98,6 @@ bobContinuebtn.addEventListener('click', event => {
     lynHel.removeAttribute('hidden')
     genRandomQuestion()
     randomQuestion.innerText = currentQuestion.prompt
-    messageEl.className = 'message'
     title.removeAttribute('hidden')
     footer.removeAttribute('hidden')
 })
@@ -125,6 +125,7 @@ init()
 
 function init() {
     messageEl.innerText = 'Click below to start your adventure!'
+    messageEl.className = 'message'
     intro.removeAttribute("hidden")
     intro.setAttribute('src', './Images/intro.gif')
     messageEl.removeAttribute('hidden')
@@ -175,7 +176,7 @@ function lynRenderAns(lastAns) {
     if (lastAns !== currentQuestion.correctAns) {
         messageEl.className = 'damage'//to style the text later
         messageEl.innerText = `${lastAns} is wrong! Attack of the chickens!!`
-        playerHel.innerHTML = playerHel.innerHTML - 25
+        playerHel.innerHTML = playerHel.innerHTML - 35
         enemyImg.setAttribute('src', './Images/lynAtk.gif')
     } else if (lastAns === currentQuestion.correctAns) {
         messageEl.className = 'attack'//to style the text later
@@ -217,7 +218,7 @@ function renderLynWin() {
     title.setAttribute('hidden', true)
     footer.setAttribute('hidden', true)
     lynHel.setAttribute('hidden', true)
-    messageEl.className = 'message'
+    messageEl.className = 'attack'
 }
 
 function renderDied() {
@@ -235,6 +236,8 @@ function renderDied() {
     lynSubmitBtn.setAttribute('hidden', true)
     lynAnsInput.setAttribute('hidden', true)
     lynHel.setAttribute('hidden', true)
+    title.setAttribute('hidden', true)
+    footer.setAttribute('hidden', true)
 }
 
 function render() {

@@ -5,7 +5,9 @@ Code Hero is a fun and dynamic quiz game that sharpens basic javascript knowledg
 Play the game [here](https://breyshaw.github.io/Code-Hero/).
 
 ## Motivation: 
-I wanted to create an engaging way to review fundamental Javascript concepts. I thought a battle structure of the quiz would be an entertaining and challenging way to make sure one knows these fundemental concepts. I hope this game will help others in need of a fun JavaScript review.
+I wanted to create an engaging way to review fundamental Javascript concepts. I thought a battle structure of the quiz would be an entertaining and challenging way to make sure one  stays consistent in their Javascript knowledge. I hope this game will help others in need of a fun JavaScript review.
+
+## Game info:
 
 Here is the initial battle wire-frame:
 <p></p>
